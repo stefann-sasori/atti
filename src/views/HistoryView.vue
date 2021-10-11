@@ -208,7 +208,7 @@ export default class HistoryView extends Vue {
 .month {
   text-transform: uppercase;
   margin-left: 1rem;
-  font-size: .9rem;
+  font-size: .8rem;
   margin-top: .5rem;
 }
 .operation-list {
@@ -288,6 +288,7 @@ span.hidden-menu-text {
   padding: .37rem;
   border-left: solid 1px #ed7f5c;
   flex: 1;
+  font-size: .85rem;
 }
 .date {
   background-color: #eee;
@@ -296,13 +297,14 @@ span.hidden-menu-text {
 .date span {
   display: block;
   line-height: 1;
-  font-size: .9rem;
+  font-size: .8rem;
 }
 .amount {
   font-weight: 600;
   color: #b5362d;
   padding-right: 2.25rem;
   position: relative;
+  font-size: .85rem;
 }
 .amount.green{
   color: #5ab237;
@@ -351,8 +353,9 @@ span.hidden-menu-text {
 .form-row input {
   border-radius: 1rem;
   padding: .75rem;
-  padding-left: 3rem;
+  padding-left: 2.5rem;
   width: auto;
+  font-size: 1rem;
 }
 .column:not(.last-column){
   padding-right: 2rem;
@@ -594,13 +597,13 @@ h2 {
   font-family: "Source Sans Pro Semibold","Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;
 }
 .ui-icon {
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
 }
 .icon-container {
   /* padding: .25rem; */
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   display: flex;
   justify-content: center;

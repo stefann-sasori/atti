@@ -122,11 +122,19 @@ export default class Accueil extends Vue {
       store.commit('hideLoader');
     }, 3000);
   }
+  showRib(){
+    store.commit('showLoader');
+    setTimeout(() => {
+      this.$router.push('rib');
+      store.commit('hideLoader');
+    }, 3000);
+  }
 }
 </script>
 <style scoped>
 .accueil{
   background-color: #f9f9fb;
+  min-height: 100vh;
 }
 .balance {
   font-size: 2rem;
@@ -212,7 +220,6 @@ span.hidden-menu-text {
 }
 .account-list {
   padding: 2rem;
-  height: 15rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

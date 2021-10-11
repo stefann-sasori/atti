@@ -200,13 +200,14 @@ export default class RibView extends Vue {
 }
 .iban-value {
   text-align: center;
-  font-size: .9rem;
+  font-size: .8rem;
   background-color: #f9f9f9;
-  padding: .5rem 1rem;
+  padding: .5rem .75rem;
   border-radius: 3rem;
 }
-iban-title {
-  font-size: .7rem;
+
+.iban-title {
+  font-size: .6rem;
   color: #aaa;
 }
 .swift {
@@ -214,7 +215,7 @@ iban-title {
   font-size: .8rem;
 }
 .swift span {
-  font-size: 1rem;
+  font-size: .9rem;
   line-height: 1.1rem;
   margin-left: .5rem;
 }
@@ -226,15 +227,15 @@ iban-title {
 }
 .name {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .qrcode-container img {
-  width: 124px;
-  height: 124px;
+  width: 96px;
+  height: 96px;
 }
 .qrcode-container {
-  width: 140px;
-  height: 140px;
+  width: 110px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -245,8 +246,8 @@ iban-title {
   margin: 1.5rem auto -2rem;
 }
 .rib-summary .logo-container img {
-  width: 150px;
-  margin: 1rem;
+  width: 100px;
+  margin: .5rem;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -609,10 +610,11 @@ background-color: #e9643f;
   align-items: center;
   margin: 0 1rem;
   background-color: #f0f0f0;
-  padding: .5rem 1rem;
+  padding: .25rem 1rem;
   width: 7rem;
   border-radius: 3rem;
   justify-content: center;
+  font-size: .9rem;
 }
 .share-option .ui-icon {
   margin: 0 .5rem;
@@ -620,7 +622,7 @@ background-color: #e9643f;
   height: 24px;
 }
 .rib-sharing .icon-container {
-  margin-top: -1.5rem;
+  margin-top: -1rem;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -683,13 +685,13 @@ h2 {
   font-family: "Source Sans Pro Semibold","Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;
 }
 .ui-icon {
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
 }
 .icon-container {
   /* padding: .25rem; */
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   overflow: hidden;
   display: flex;
   justify-content: center;
