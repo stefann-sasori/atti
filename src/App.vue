@@ -1,18 +1,77 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view/>
+  <transition name="fade">
+    <div v-show="$store.state.loading" id="main-green-preloader">
+      <div class="preloader-container">
+        <div class="preloader">
+          <div class="preloader-content"></div>
+        </div>
+      </div>
+
+    </div>
+  </transition>
+
 </template>
 
 <style lang="less">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.preloader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  background-color: white;
+  width: 128px;
+  height: 128px;
+  border-radius: 1.25rem;
+}
+#main-green-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  transition: all .3s ease;
+  overflow: hidden;
+}
+.preloader-content {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  border: 5px solid #e86441;
+  border-radius: 54px;
+  height: 35px;
+  width: 35px;
+  clip: rect(0px, 18px, 18px, 0px);
+  animation: rotate 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.preloader {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 5px solid #c3cce0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
 }
 
 #nav {
