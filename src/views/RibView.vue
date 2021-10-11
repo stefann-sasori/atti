@@ -610,7 +610,7 @@ background-color: #e9643f;
   align-items: center;
   margin: 0 1rem;
   background-color: #f0f0f0;
-  padding: .25rem 1rem;
+  padding: .5rem 1rem;
   width: 7rem;
   border-radius: 3rem;
   justify-content: center;

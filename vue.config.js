@@ -11,6 +11,7 @@ module.exports = {
             favicon32: 'img/pwa/32x32.png',
             favicon16: 'img/pwa/16x16.png',
             appleTouchIcon: 'img/pwa/154x154.png',
+            appleTouchStartupImage: 'img/pwa/154x154.png',
         },
         manifestOptions: {
             display: 'standalone',

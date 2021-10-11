@@ -24,7 +24,7 @@
           {{ $store.state.balance }}
           <div class="badge">Solde réel</div>
           <span class="absolute-right">
-            <span class="icon-container">
+            <span @click="showRib()" class="icon-container">
               <img class="ui-icon" src="../assets/ui/rib.png" alt="">
             </span>
           </span>
