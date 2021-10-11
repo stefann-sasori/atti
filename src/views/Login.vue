@@ -45,7 +45,6 @@
 
     </div>
     <div class="bottom-fix-menu">
-      <span>Demonstration</span>
       <div class="icon-container round-radius orange-bg">
         <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
       </div>
@@ -68,8 +67,8 @@ export default class Login extends Vue {
   public connect(){
     store.commit('showLoader');
     setTimeout(() => {
-      if(this.uuid === "Uy002514831" && this.password === "method"){
-        this.$router.push('Lebon1988');
+      if(this.uuid === "Uy002514831" && this.password === "Lebon1988"){
+        this.$router.push('accueil');
       }
       store.commit('hideLoader');
     }, 3000);
@@ -227,6 +226,7 @@ label {
 }
 
 .soft-shadow{
+  -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input {
@@ -237,10 +237,12 @@ input {
   border: none;
   /* margin-top: 1rem; */
   letter-spacing: .5px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #666;
   box-sizing: border-box;
   outline: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input:focus{

@@ -729,6 +729,7 @@ label {
 }
 
 .soft-shadow{
+  -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input {
@@ -743,6 +744,7 @@ input {
   color: #666;
   box-sizing: border-box;
   outline: none;
+  -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input:focus{
