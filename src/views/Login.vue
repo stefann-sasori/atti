@@ -67,7 +67,7 @@ export default class Login extends Vue {
   public connect(){
     store.commit('showLoader');
     setTimeout(() => {
-      if(this.uuid === "Uy002514831" && this.password === "Lebon1988"){
+      if(this.uuid === "Uy53128927" && this.password === "Jasper2112"){
         this.$router.push('accueil');
       }
       store.commit('hideLoader');
@@ -134,13 +134,13 @@ a{
   bottom: 0;
   width: 100%;
   text-align: center;
-  height: 6rem;
+  height: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-top: 1rem;
   align-items: center;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 img.bg-back {
   width: 100%;
@@ -180,13 +180,13 @@ h2 {
   font-family: "Source Sans Pro Semibold","Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;
 }
 .ui-icon {
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
 }
 .icon-container {
   /* padding: .25rem; */
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -232,8 +232,8 @@ label {
 input {
   width: 100%;
   border-radius: .4rem;
-  padding: 1rem;
-  padding-left: 3rem;
+  padding: .5rem;
+  padding-left: 2.5rem;
   border: none;
   /* margin-top: 1rem; */
   letter-spacing: .5px;
@@ -283,9 +283,9 @@ input:focus{
   color: white;
   /* font-weight: 300; */
   margin-top: 2rem;
-  padding: .75rem;
+  padding: .5rem;
   display: flex;
-  font-size: 1.1rem;
+  font-size: 1rem;
   width: 100%;
   margin-left: auto;
   margin-right: auto;

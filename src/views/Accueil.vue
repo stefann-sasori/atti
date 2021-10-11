@@ -129,8 +129,8 @@ export default class Accueil extends Vue {
   background-color: #f9f9fb;
 }
 .balance {
-  font-size: 2.5rem;
-  margin: 1rem 0;
+  font-size: 2rem;
+  margin: .5rem 0;
 
 }
 .hidden-menu {
@@ -227,21 +227,25 @@ span.hidden-menu-text {
 
 }
 .account .balance {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin: 0;
   color: #5ab237;
   width: 13rem;
+}
+.account-list .account {
+  font-size: .9rem;
 }
 .chart-container {
   width: 100vw;
   overflow-y: hidden;
   overflow-x: auto;
-  padding-top: 5rem;
+  padding-top: 2rem;
 }
 .content-text {
   text-align: left;
-  padding: 2rem 1.5rem;
+  padding: 1rem;
   background-color: white;
+  font-size: .9rem;
 }
 .notif-count {
   position: absolute;
@@ -259,12 +263,14 @@ span.hidden-menu-text {
   padding: .5rem 3rem .5rem 1rem;
   border-radius: 5rem;
   font-size: .8rem;
-  position: relative;
-  float: right;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
 }
 .notification-container{
   padding: 1rem;
   justify-content: right;
+  position: relative;
 }
 .flex {
   display: flex;
@@ -323,7 +329,7 @@ a{
   background-color: #fd7853;
 }
 .chart-container img {
-  height: 10rem;
+  height: 14rem;
 }
 .bottom-fix-menu {
   position: fixed;
@@ -376,13 +382,13 @@ h2 {
   font-family: "Source Sans Pro Semibold","Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;
 }
 .ui-icon {
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
 }
 .icon-container {
   /* padding: .25rem; */
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   display: flex;
   justify-content: center;
