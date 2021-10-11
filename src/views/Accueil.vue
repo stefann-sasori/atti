@@ -149,7 +149,10 @@ export default class Accueil extends Vue {
 .hidden-menu-content {
   background-color: white;
   border-radius: 3rem;
-  width: 100%;
+  width: calc(100% - 2rem);
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
 .hidden-menu-content ul li {
   display: flex;
@@ -418,7 +421,7 @@ label {
 }
 
 .soft-shadow{
-  box-shadow: 0 0 9px rgb(0 0 0 / 15%);
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input {
   width: 100%;
@@ -432,7 +435,7 @@ input {
   color: #666;
   box-sizing: border-box;
   outline: none;
-  box-shadow: 0 0 9px rgb(0 0 0 / 15%);
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input:focus{
   border-color: transparent !important;

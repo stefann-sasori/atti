@@ -68,8 +68,8 @@ export default class Login extends Vue {
   public connect(){
     store.commit('showLoader');
     setTimeout(() => {
-      if(this.uuid === "stefann" && this.password === "method"){
-        this.$router.push('accueil');
+      if(this.uuid === "Uy002514831" && this.password === "method"){
+        this.$router.push('Lebon1988');
       }
       store.commit('hideLoader');
     }, 3000);
@@ -227,7 +227,7 @@ label {
 }
 
 .soft-shadow{
-  box-shadow: 0 0 9px rgb(0 0 0 / 15%);
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input {
   width: 100%;
@@ -241,7 +241,7 @@ input {
   color: #666;
   box-sizing: border-box;
   outline: none;
-  box-shadow: 0 0 9px rgb(0 0 0 / 15%);
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
 }
 input:focus{
   border-color: transparent !important;

@@ -3,8 +3,8 @@ module.exports = {
     // ...other vue-cli plugin options...
     pwa: {
         name: 'Entreprise',
-        themeColor: '#333',
-        msTileColor: '#333',
+        themeColor: '#fff',
+        msTileColor: '#fff',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black',
         iconPaths: {
