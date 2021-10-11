@@ -260,6 +260,7 @@ span.hidden-menu-text {
   border-radius: 5rem;
   font-size: .8rem;
   position: relative;
+  float: right;
 }
 .notification-container{
   padding: 1rem;
@@ -322,7 +323,7 @@ a{
   background-color: #fd7853;
 }
 .chart-container img {
-  height: 17rem;
+  height: 10rem;
 }
 .bottom-fix-menu {
   position: fixed;
