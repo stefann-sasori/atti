@@ -288,11 +288,13 @@ span.hidden-menu-text {
   padding: .37rem;
   border-left: solid 1px #ed7f5c;
   flex: 1;
-  font-size: .85rem;
+  font-size: .75rem;
 }
 .date {
   background-color: #eee;
-  padding: .5rem;
+  padding: .5rem .5rem;
+  text-align: center;
+  width: 1.5rem;
 }
 .date span {
   display: block;
@@ -302,9 +304,9 @@ span.hidden-menu-text {
 .amount {
   font-weight: 600;
   color: #b5362d;
-  padding-right: 2.25rem;
+  padding-right: 1.75rem;
   position: relative;
-  font-size: .85rem;
+  font-size: .75rem;
 }
 .amount.green{
   color: #5ab237;
@@ -316,7 +318,7 @@ span.hidden-menu-text {
   height: 16px;
   top: 50%;
   transform: translateY(-50%);
-  right: 1rem;
+  right: .85rem;
 }
 .operation-options .form-row {
   display: flex;
@@ -352,10 +354,12 @@ span.hidden-menu-text {
 }
 .form-row input {
   border-radius: 1rem;
-  padding: .75rem;
+  padding: .5rem;
   padding-left: 2.5rem;
   width: auto;
-  font-size: 1rem;
+  font-size: .9rem;
+  flex: 1;
+  margin-right: .5rem;
 }
 .column:not(.last-column){
   padding-right: 2rem;
@@ -577,10 +581,10 @@ h1{
   padding: 1.5rem;
 }
 .form-row .input-icon {
-  left: 1.5rem;
+  left: 1.75rem;
   /* border-radius: 3rem; */
-  width: 24px;
-  height: 24px;
+  width: 19px;
+  height: 19px;
 }
 .input-icon {
   position: absolute;

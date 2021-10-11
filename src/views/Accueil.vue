@@ -246,7 +246,7 @@ span.hidden-menu-text {
   width: 100vw;
   overflow-y: hidden;
   overflow-x: auto;
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 .content-text {
   text-align: left;
@@ -336,7 +336,7 @@ a{
   background-color: #fd7853;
 }
 .chart-container img {
-  height: 14rem;
+  height: 16rem;
 }
 .bottom-fix-menu {
   position: fixed;
