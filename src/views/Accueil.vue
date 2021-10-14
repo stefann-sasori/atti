@@ -1,7 +1,7 @@
 <template>
   <div class="accueil">
     <div class="notification-container flex">
-      <div class="notifications">
+        <div @click="$router.push({name: 'Error', params: {title: 'Notifications'}})" class="notifications">
         <span class="notif-text">Notifications</span>
         <span class="notif-count round-radius orange-bg">0</span>
       </div>
@@ -78,20 +78,20 @@
     </transition>
     <div class="toolbar-content">
       <div class="toolbar soft-shadow">
-        <span class="icon-container">
+        <span  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})"  class="icon-container">
           <img class="ui-icon" src="../assets/ui/stack.png" alt="">
         </span>
-        <span class="icon-container">
+        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
           <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
         </span>
 
-        <span @click="showHiddenMenu()" class="icon-container round-radius orange-bg">
+        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
           <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
         </span>
-        <span class="icon-container">
+        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >
           <img class="ui-icon " src="../assets/ui/sheet.png" alt="">
         </span>
-        <span class="icon-container">
+        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >
           <img class="ui-icon" src="../assets/ui/finger.png" alt="">
         </span>
       </div>

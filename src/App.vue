@@ -9,11 +9,26 @@
           <div class="preloader-content"></div>
         </div>
       </div>
-
     </div>
   </transition>
-
+  <transition v-if="$store.state.menuDisplayed" name="fade">
+    <menu-component />
+  </transition>
 </template>
+<script lang="ts">
+import {Vue, Options} from "vue-class-component";
+import MenuComponent from "@/components/MenuComponent.vue";
+
+
+@Options({
+  components: {
+  MenuComponent,
+  },
+})
+export default class App extends Vue {
+
+}
+</script>
 
 <style lang="less">
 #app {

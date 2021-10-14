@@ -13,6 +13,15 @@ export default createStore({
       key: 1,
       month: 'octobre 2021',
       list:[
+        {
+          shortMonth: "oct",
+          day: "13",
+          date: "13 oct",
+          title: "GAB BANK ADGAL13/10/21",
+          amount: "-300,00 MAD",
+          key: 59,
+          state: false,
+        },
           {
         shortMonth: "oct",
         day: "08",
@@ -518,10 +527,17 @@ export default createStore({
       }
 
     ],
+    menuDisplayed: false,
   },
   mutations: {
     showLoader(state){
       state.loading = true;
+    },
+    displayMenu(state){
+      state.menuDisplayed = true;
+    },
+    hideMenu(state){
+      state.menuDisplayed = false;
     },
     hideLoader(state){
       state.loading = false;

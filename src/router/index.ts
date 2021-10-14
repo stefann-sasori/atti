@@ -6,6 +6,7 @@ import HistoryView from "@/views/HistoryView.vue";
 import RibView from "@/views/RibView.vue";
 import OperationDetail from "@/views/OperationDetail.vue";
 import store from '@/store';
+import ErrorView from "@/views/ErrorView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -34,6 +35,11 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
+    path: '/error/:title',
+    name: 'Error',
+    component: ErrorView,
+  },
+  {
     path: '/rib',
     name: 'Rib',
     component: RibView
@@ -49,5 +55,8 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-
+router.beforeEach((to, from, next) => {
+  store.commit('hideMenu');
+  next();
+})
 export default router

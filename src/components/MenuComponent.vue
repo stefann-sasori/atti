@@ -1,201 +1,232 @@
 <template>
-  <div class="history">
-    <div class="half-top">
-      <div class="head">
-        <span @click="showHome()" class="icon-container angle-left">
-          <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
-        </span>
-        <span>Opérations</span>
-        <span class="absolute-right">
-          <span class="icon-container">
-            <img class="ui-icon" src="../assets/ui/pdf.png" alt="">
-          </span>
-          <span class="icon-container">
-            <img class="ui-icon" src="../assets/ui/home.png" alt="">
-          </span>
-        </span>
-
-      </div>
-      <div class="summary">
-        <div>
-          {{ $store.state.name }}
-        </div>
-        <div class="balance">
-          {{ $store.state.balance }}
-          <div class="badge">Solde réel</div>
-          <span class="absolute-right">
-            <span @click="showRib()" class="icon-container">
-              <img class="ui-icon" src="../assets/ui/rib.png" alt="">
+  <div class="hidden-menu menu-component">
+      <div class="hidden-menu-content">
+        <div class="menu-head">
+          <div class="action-icons">
+            <span @click="logout()" class="icon-container">
+              <img src="../assets/ui/logout.png" class="ui-icon" alt="">
             </span>
+            <img src="../assets/images/logoati-white.png" alt="">
+            <span class="icon-container">
+            <img src="../assets/ui/params.png " class="ui-icon" alt="">
           </span>
-        </div>
-        <div class="columns">
-          <div class="column">
-            {{ $store.state.yesterdayBalance }}
-            <div>Solde du {{ yesterday() }}</div>
           </div>
-          <div class="column last-column">
-            {{ $store.state.iban }}
-            <div>Compte Courant</div>
+          <div class="menu-title">
+            <span>... {{ $store.state.name }}</span>
           </div>
         </div>
-      </div>
-
-
-    </div>
-
-    <div class="operation-options">
-      <div class="form-row">
-        <img src="../assets/ui/search.png" alt="" class="ui-icon input-icon">
-        <input type="text" class="soft-shadow" placeholder="Chercher...">
-        <span class="icon-container">
-          <img class="ui-icon" src="../assets/ui/stack2.png" alt="">
-        </span>
-        <span class="icon-container">
-          <img class="ui-icon" src="../assets/ui/calendar.png" alt="">
-        </span>
-      </div>
-
-    </div>
-
-    <div class="operation-list">
-      <div class="operation-group" v-for="group in $store.state.operations" :key="group.key">
-        <div class="month">
-          {{ group.month }}
-        </div>
-        <div class="operations">
-          <div @click="showDetail(group.key, operation.key)" class="operation" v-for="operation in group.list" :key="operation.key">
-            <div class="date">
-              <span>{{ operation.day }}</span><span>{{ operation.shortMonth }}</span>
-            </div>
-            <div class="title">{{ operation.title }}</div>
-            <div :class="{green: operation.state}" class="amount">
-              {{ operation.amount }}
-              <img class="ui-icon" src="../assets/ui/angleright.png" alt="">
-            </div>
+        <div class="operation-options">
+          <div class="form-row">
+            <img src="../assets/ui/search.png" alt="" class="ui-icon input-icon">
+            <input type="text" class="soft-shadow" placeholder="Chercher...">
           </div>
         </div>
-      </div>
-    </div>
-    <div class="toolbar-content">
-      <div @click="showHiddenMenu()" class="orange-bg soft-shadow i-want">
-        Je voudrais...
-      </div>
-      <div class="toolbar soft-shadow">
-        <span  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})"  class="icon-container">
-          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
-        </span>
-        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
-          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
-        </span>
 
-        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
-          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
-        </span>
-        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >
-          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">
-        </span>
-        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >
-          <img class="ui-icon" src="../assets/ui/finger.png" alt="">
-        </span>
-      </div>
-    </div>
-
-
-    <transition name="fade">
-      <div v-show="hiddenMenuOpen" class="hidden-menu">
-        <div class="hidden-menu-content">
+        <div class="menu-item-list">
+          <h5 class="orange">
+            Consultation
+          </h5>
           <ul>
-            <li  @click="showRib()">
+            <li  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})" >
             <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/rib.png" alt="">
+              <img class="ui-icon" src="../assets/ui/stack.png" alt="">
             </span>
-              <span class="hidden-menu-text">Afficher mon RIB</span>
+              <span class="hidden-menu-text">Comptes</span>
             </li>
-            <li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Impayés'}})" >
             <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/clock.png" alt="">
+              <img class="ui-icon" src="../assets/ui/sheet-chart.png" alt="">
             </span>
-              <span class="hidden-menu-text">Consulter les opérations à venir</span>
+              <span class="hidden-menu-text">Impayés</span>
             </li>
-            <li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Cartes'}})" >
             <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/card.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Cartes</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Cartes conventionnées'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/card.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Cartes conventionnées</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Tombées et échéances'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/calendar.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Tombées et échéances</span>
+            </li>
+          </ul>
+          <h5 class="orange">
+            Opérations
+          </h5>
+          <ul>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Virements'}})" >
+            <span  class="icon-container">
               <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
             </span>
-              <span class="hidden-menu-text">Effectuer un virement</span>
+              <span class="hidden-menu-text">Virements</span>
             </li>
-            <li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Mes bénéficiaires'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/user-check.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Mes bénéficiaires</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Cartes'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/card.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Cartes</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Paiement de facture'}})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
             </span>
-              <span class="hidden-menu-text">Payer une facture</span>
+              <span class="hidden-menu-text">Paiement de factures</span>
             </li>
-            <li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayés'}})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/finger.png" alt="">
             </span>
-              <span class="hidden-menu-text">Recharger mobile ou Jawz</span>
+              <span class="hidden-menu-text">Recharges prépayés</span>
             </li>
-            <li>
+          </ul>
+          <h5 class="orange">
+            Service en ligne
+          </h5>
+          <ul>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Commande de chéquier/LCN'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Commande de chéquier/LCN</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Documents bancaires'}})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
             </span>
-              <span class="hidden-menu-text">Consulter le relevé de compte</span>
+              <span class="hidden-menu-text">Documents bancaires</span>
             </li>
           </ul>
-          <div @click="hideHiddenMenu()" class="close-button">
+          <h5 class="orange">
+            Titre et bourse
+          </h5>
+          <ul>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Portefeuille titres'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/camember.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Portefeuille titres</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Cotations boursières'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/chart2.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Cotations boursières</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Valeurs  liquidatives'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/chart.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Valeurs  liquidatives</span>
+            </li>
+
+            <li  @click="$router.push({name: 'Error', params: {title: 'Cours des  devises'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/money.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Cours des  devises</span>
+            </li>
+          </ul>
+          <h5 class="orange">
+            Contact
+          </h5>
+          <ul>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Réclamations'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/export.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Réclamations</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Assistance'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/call-center.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Assistance</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Agences'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/marker.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Agences</span>
+            </li>
+          </ul>
+          <h5 class="orange">
+            Infos
+          </h5>
+          <ul>
+            <li  @click="$router.push({name: 'Error', params: {title: 'FAQ'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/question-mark.png" alt="">
+            </span>
+              <span class="hidden-menu-text">FAQ</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Tarification'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/price-tag.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Tarification</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Sécurité'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/shield.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Sécurité</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Mentions légales'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/justicve.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Mentions légales</span>
+            </li>
+            <li  @click="$router.push({name: 'Error', params: {title: 'Conditions générales d\'utilisation'}})" >
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/hammer.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Conditions générales d'utilisation</span>
+            </li>
+          </ul>
+        </div>
+
+
+        <div @click="$store.commit('hideMenu')" class="close-button">
             <span class="icon-container round-radius orange-bg">
               <img class="ui-icon" src="../assets/ui/close.png" alt="">
             </span>
-          </div>
         </div>
       </div>
-    </transition>
-  </div>
+    </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
 import store from "@/store";
-import {DateTime} from "luxon";
-import router from "@/router";
-import MenuComponent from "@/components/MenuComponent.vue";
+import {Options, Vue} from "vue-class-component";
 
 @Options({
   components: {
-    MenuComponent,
   },
 })
-export default class HistoryView extends Vue {
-  hiddenMenuOpen = false;
-  yesterday(){
-    return DateTime.now().setLocale('en-gb').minus({days: 1}).toLocaleString();
-  }
-  showHiddenMenu(){
-    this.hiddenMenuOpen = true;
-  }
-  hideHiddenMenu(){
-    this.hiddenMenuOpen = false;
-  }
-  showDetail(monthKey: any, operationKey: any){
-    router.push({name: 'Detail', params: {monthKey: monthKey, operationKey: operationKey} });
-  }
-  showRib(){
-    store.commit('showLoader');
-    setTimeout(() => {
-      this.$router.push('rib');
-      store.commit('hideLoader');
-    }, 500);
-  }
-  showHome(){
-    store.commit('showLoader');
-    setTimeout(() => {
-      this.$router.push('accueil');
-      store.commit('hideLoader');
-    }, 500);
+export default class MenuComponent extends Vue {
+
+  logout(){
+    store.commit('hideMenu');
+    this.$router.push('Login')
   }
 }
 </script>
+
 <style scoped>
 .history{
   background-color: #f9f9fb;
@@ -228,6 +259,14 @@ export default class HistoryView extends Vue {
   overflow: auto;
   padding-bottom: 10rem;
 }
+h5 {
+  margin: 0;
+  text-align: left;
+  padding: 0 1rem;
+  text-transform: uppercase;
+}
+
+
 .hidden-menu {
   position: fixed;
   background-color: rgba(0,0,0,0.4);
@@ -241,33 +280,65 @@ export default class HistoryView extends Vue {
   display: flex;
 
 }
+.menu-item-list {
+  flex: 1;
+  overflow: auto;
+}
 .hidden-menu-content {
   background-color: white;
-  border-radius: 3rem;
-  width: calc(100% - 2rem);
+  border-radius: 1.5rem;
+  width: calc(100% - 1rem);
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+  top: 1rem;
+  left: .5rem;
+  height: calc(100% - 2rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .hidden-menu-content ul li {
   display: flex;
   align-items: center;
-  border-top: solid 1px #ccc;
   padding: 0;
 }
-.hidden-menu-content ul li:last-of-type{
-  border-bottom: solid 1px #ccc;
+.operation-options {
+  padding: 1rem !important;
+}
+.menu-head .action-icons img.ui-icon {
+  width: 32px;
+  height: 32px;
+}
+.menu-head{
+  background-color: #212223;
 }
 span.hidden-menu-text {
-  font-size: .9rem;
+  font-size: .8rem;
+  margin-left: 1rem;
 }
 .hidden-menu-content ul {
 
-  padding: 2rem 1.5rem 0;
+  padding: 0 1.5rem;
   list-style: none;
-
-
+  margin-top: 0;
+  border-bottom: solid 1px #eee;
+  padding-bottom: 1rem;
 }
+.action-icons > img {
+  width: 7rem;
+}
+.menu-title {
+  color: white;
+  font-weight: bold;
+  padding: .5rem;
+}
+.action-icons {
+  display: flex;
+  padding: 1rem 0;
+  justify-content: space-between;
+  margin: 0 1rem;
+  border-bottom: solid 1px #333;
+}
+
 .close-button {
   display: flex;
   justify-content: center;
@@ -363,13 +434,13 @@ span.hidden-menu-text {
   /*width: 50%;*/
 }
 .form-row input {
-  border-radius: 1rem;
   padding: .5rem;
   padding-left: 2.5rem;
   width: auto;
   font-size: .9rem;
   flex: 1;
   margin-right: .5rem;
+  border-radius: .5rem;
 }
 .column:not(.last-column){
   padding-right: 2rem;
@@ -551,8 +622,16 @@ a{
 .orange-bg{
   background-color: #fd7853;
 }
+.orange{
+  color: #fd7853;
+}
 .chart-container img {
   height: 17rem;
+}
+.hidden-menu-content h5 + ul li .icon-container {
+  width: 32px;
+  height: 32px;
+  padding: .25rem 0;
 }
 .bottom-fix-menu {
   position: fixed;
@@ -732,6 +811,5 @@ input:focus{
   border-color: #e86441;
   color: #e86441;
 }
-
 
 </style>
