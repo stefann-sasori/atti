@@ -246,7 +246,7 @@ span.hidden-menu-text {
   width: 100vw;
   overflow-y: hidden;
   overflow-x: auto;
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 .content-text {
   text-align: left;
