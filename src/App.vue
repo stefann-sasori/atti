@@ -33,7 +33,7 @@
   }
 }
 body {
-  touch-action: pan-y;
+  touch-action: none;
   margin: 0;
 }
 .fade-enter-active, .fade-leave-active {
