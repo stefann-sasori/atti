@@ -6,7 +6,10 @@ export default createStore({
     balance: "861,78 MAD",
     iban: "0355 X 000000415",
     name: "BK MAKING",
-    operations: [{
+    yesterdayBalance: "861,78 MAD",
+    currentOperation: null,
+    operations: [
+        {
       key: 1,
       month: 'octobre 2021',
       list:[
@@ -395,7 +398,7 @@ export default createStore({
             title: "VIREMENT RECU DE ETRANGER",
             amount: "-201 549,78 MAD",
             key: 48,
-            state: true,
+            state: false,
           },
           {
             shortMonth: "sept",
@@ -490,7 +493,7 @@ export default createStore({
         ],
       },
       {
-        key: 2,
+        key: 3,
         month: 'août 2021',
         list:[
           {
@@ -522,6 +525,26 @@ export default createStore({
     },
     hideLoader(state){
       state.loading = false;
+    },
+    setCurrentOperation(state, operation) {
+      state.currentOperation = operation;
+    },
+  },
+  getters: {
+    getOperation: (state) => (payload: any) => {
+      const month = state.operations.find((month) => {
+        return month.key + '' == payload.monthKey;
+      });
+      console.log(payload);
+      if(!month){
+        return null;
+      }
+      console.log(month);
+      const operation = month.list.find((operation) => {
+        return operation.key  + '' == payload.operationKey;
+      });
+      console.log(operation);
+      return operation || null;
     }
   },
   actions: {

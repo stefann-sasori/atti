@@ -163,7 +163,7 @@ export default class RibView extends Vue {
     setTimeout(() => {
       this.$router.push('accueil');
       store.commit('hideLoader');
-    }, 3000);
+    }, 500);
   }
 }
 </script>

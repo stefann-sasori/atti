@@ -1,5 +1,7 @@
 <template>
-  <router-view/>
+  <transition name="fade">
+    <router-view/>
+  </transition>
   <transition name="fade">
     <div v-show="$store.state.loading" id="main-green-preloader">
       <div class="preloader-container">
@@ -29,6 +31,16 @@
   100% {
     transform: rotate(360deg);
   }
+}
+body {
+  touch-action: pan-y;
+  margin: 0;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 .preloader-container {
   position: absolute;

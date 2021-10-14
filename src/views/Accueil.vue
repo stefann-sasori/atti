@@ -120,14 +120,14 @@ export default class Accueil extends Vue {
     setTimeout(() => {
       this.$router.push('history');
       store.commit('hideLoader');
-    }, 3000);
+    }, 1000);
   }
   showRib(){
     store.commit('showLoader');
     setTimeout(() => {
       this.$router.push('rib');
       store.commit('hideLoader');
-    }, 3000);
+    }, 1000);
   }
 }
 </script>

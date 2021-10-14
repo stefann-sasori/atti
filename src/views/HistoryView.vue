@@ -31,8 +31,8 @@
         </div>
         <div class="columns">
           <div class="column">
-            5 640,75 MAD
-            <div>Solde du 08/10/2021</div>
+            {{ $store.state.yesterdayBalance }}
+            <div>Solde du {{ yesterday() }}</div>
           </div>
           <div class="column last-column">
             {{ $store.state.iban }}
@@ -64,7 +64,7 @@
           {{ group.month }}
         </div>
         <div class="operations">
-          <div class="operation" v-for="operation in group.list" :key="operation.key">
+          <div @click="showDetail(group.key, operation.key)" class="operation" v-for="operation in group.list" :key="operation.key">
             <div class="date">
               <span>{{ operation.day }}</span><span>{{ operation.shortMonth }}</span>
             </div>
@@ -157,6 +157,8 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import store from "@/store";
+import {DateTime} from "luxon";
+import router from "@/router";
 
 @Options({
   components: {
@@ -164,25 +166,31 @@ import store from "@/store";
 })
 export default class HistoryView extends Vue {
   hiddenMenuOpen = false;
+  yesterday(){
+    return DateTime.now().setLocale('en-gb').minus({days: 1}).toLocaleString();
+  }
   showHiddenMenu(){
     this.hiddenMenuOpen = true;
   }
   hideHiddenMenu(){
     this.hiddenMenuOpen = false;
   }
+  showDetail(monthKey: any, operationKey: any){
+    router.push({name: 'Detail', params: {monthKey: monthKey, operationKey: operationKey} });
+  }
   showRib(){
     store.commit('showLoader');
     setTimeout(() => {
       this.$router.push('rib');
       store.commit('hideLoader');
-    }, 3000);
+    }, 500);
   }
   showHome(){
     store.commit('showLoader');
     setTimeout(() => {
       this.$router.push('accueil');
       store.commit('hideLoader');
-    }, 3000);
+    }, 500);
   }
 }
 </script>

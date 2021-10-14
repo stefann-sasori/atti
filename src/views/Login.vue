@@ -71,7 +71,7 @@ export default class Login extends Vue {
         this.$router.push('accueil');
       }
       store.commit('hideLoader');
-    }, 3000);
+    }, 1000);
 
   }
 }

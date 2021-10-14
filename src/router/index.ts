@@ -4,6 +4,8 @@ import Login from "@/views/Login.vue";
 import Accueil from "@/views/Accueil.vue";
 import HistoryView from "@/views/HistoryView.vue";
 import RibView from "@/views/RibView.vue";
+import OperationDetail from "@/views/OperationDetail.vue";
+import store from '@/store';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,6 +22,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/history',
     name: 'History',
     component: HistoryView
+  },
+  {
+    path: '/operation/:monthKey/:operationKey',
+    name: 'Detail',
+    component: OperationDetail,
+    beforeEnter: (to, from, next) => {
+
+      store.commit('setCurrentOperation', store.getters.getOperation({monthKey: to.params.monthKey, operationKey: to.params.operationKey}));
+      next();
+    }
   },
   {
     path: '/rib',
