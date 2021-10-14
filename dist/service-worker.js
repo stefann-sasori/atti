@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.fcc230592b2b910f68636b866f401258.js"
+  "/precache-manifest.1c81af116a34a19aad0b871001282ad9.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "attijari"});

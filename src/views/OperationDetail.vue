@@ -260,7 +260,7 @@ span.hidden-menu-text {
   text-align: center;
   padding: 1rem;
 }
-.columns[data-v-2cf38564] {
+.columns {
   display: flex;
   padding: 1rem 0;
   padding-top: 1.25rem;
