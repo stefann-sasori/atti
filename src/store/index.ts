@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     loading: false,
-    balance: "861,78 MAD",
+    balance: "561,78 MAD",
     iban: "0355 X 000000415",
     name: "BK MAKING",
     yesterdayBalance: "861,78 MAD",
