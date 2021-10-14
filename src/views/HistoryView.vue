@@ -7,7 +7,7 @@
         </span>
         <span>Opérations</span>
         <span class="absolute-right">
-          <span class="icon-container">
+          <span @click="$router.push({name: 'Error',  params: {title: 'Pdf'}})" class="icon-container">
             <img class="ui-icon" src="../assets/ui/pdf.png" alt="">
           </span>
           <span  @click="$router.push({name: 'Accueil'})" class="icon-container">
@@ -112,31 +112,31 @@
             </span>
               <span class="hidden-menu-text">Afficher mon RIB</span>
             </li>
-            <li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Consulter les opérations '}})">
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/clock.png" alt="">
             </span>
               <span class="hidden-menu-text">Consulter les opérations à venir</span>
             </li>
-            <li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})">
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
             </span>
               <span class="hidden-menu-text">Effectuer un virement</span>
             </li>
-            <li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
             </span>
               <span class="hidden-menu-text">Payer une facture</span>
             </li>
-            <li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/finger.png" alt="">
             </span>
-              <span class="hidden-menu-text">Recharger mobile ou Jawz</span>
+              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>
             </li>
-            <li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
             </span>

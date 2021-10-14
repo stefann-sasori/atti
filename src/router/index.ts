@@ -7,6 +7,7 @@ import RibView from "@/views/RibView.vue";
 import OperationDetail from "@/views/OperationDetail.vue";
 import store from '@/store';
 import ErrorView from "@/views/ErrorView.vue";
+import TransactionStatement from "@/views/TransactionStatement.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {

@@ -405,9 +405,9 @@ export default createStore({
             day: "10",
             date: "10 sept",
             title: "VIREMENT RECU DE ETRANGER",
-            amount: "-201 549,78 MAD",
+            amount: "201 549,78 MAD",
             key: 48,
-            state: false,
+            state: true,
           },
           {
             shortMonth: "sept",
