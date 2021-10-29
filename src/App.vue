@@ -3,8 +3,7 @@
     <router-view/>
   </transition>
   <transition name="fade">
-<!--    <div v-show="$store.state.loading" id="main-green-preloader">-->
-    <div v-show="true" id="main-green-preloader">
+    <div v-show="$store.state.loading" id="main-green-preloader">
       <div class="preloader-container">
         <img src="img/1487.gif" alt="">
       </div>
