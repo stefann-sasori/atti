@@ -3,11 +3,10 @@
     <router-view/>
   </transition>
   <transition name="fade">
-    <div v-show="$store.state.loading" id="main-green-preloader">
+<!--    <div v-show="$store.state.loading" id="main-green-preloader">-->
+    <div v-show="true" id="main-green-preloader">
       <div class="preloader-container">
-        <div class="preloader">
-          <div class="preloader-content"></div>
-        </div>
+        <img src="img/1487.gif" alt="">
       </div>
     </div>
   </transition>
@@ -67,6 +66,14 @@ body {
   height: 128px;
   border-radius: 1.25rem;
 }
+.preloader-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+}
 #main-green-preloader {
   position: fixed;
   top: 0;
@@ -78,29 +85,29 @@ body {
   transition: all .3s ease;
   overflow: hidden;
 }
-.preloader-content {
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  border: 5px solid #e86441;
-  border-radius: 54px;
-  height: 35px;
-  width: 35px;
-  clip: rect(0px, 18px, 18px, 0px);
-  animation: rotate 1.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-.preloader {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 5px solid #c3cce0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-}
+//.preloader-content {
+//  position: absolute;
+//  top: -5px;
+//  left: -5px;
+//  border: 5px solid #e86441;
+//  border-radius: 54px;
+//  height: 35px;
+//  width: 35px;
+//  clip: rect(0px, 18px, 18px, 0px);
+//  animation: rotate 1.5s;
+//  animation-timing-function: linear;
+//  animation-iteration-count: infinite;
+//}
+//.preloader {
+//  width: 35px;
+//  height: 35px;
+//  border-radius: 50%;
+//  border: 5px solid #c3cce0;
+//  position: absolute;
+//  top: 50%;
+//  left: 50%;
+//  transform: translate3d(-50%, -50%, 0);
+//}
 
 #nav {
   padding: 30px;
