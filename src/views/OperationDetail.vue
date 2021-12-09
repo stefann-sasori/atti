@@ -67,7 +67,7 @@ export default class OperationDetail extends Vue {
     if(date == undefined){
       return undefined;
     }
-    return date.minus({ days: 7 });
+    return date;
   }
 
   public format(date: DateTime|undefined){
