@@ -11,7 +11,7 @@ export default createStore({
     operations: [
       {
         key: 1,
-        month: 'decembre 2021',
+        month: 'décembre 2021',
         list:[
           {
             shortMonth: "dec",
@@ -60,8 +60,8 @@ export default createStore({
           },
           {
             shortMonth: "dec",
-            day: "08",
-            date: "O8 dec",
+            day: "02",
+            date: "O2 dec",
             title: "ARRETE DU COMPTE 3E TRIM...",
             amount: "-660,97 EUR",
             key: 5,
@@ -72,8 +72,8 @@ export default createStore({
 
           {
             shortMonth: "dec",
-            day: "07",
-            date: "O7 dec",
+            day: "01",
+            date: "O1 dec",
             title: "FRAIS EXTRAIT DE COMPTE",
             amount: "-11,00 EUR",
             key: 12,
@@ -81,8 +81,8 @@ export default createStore({
           },
           {
             shortMonth: "dec",
-            day: "06",
-            date: "O6 dec",
+            day: "01",
+            date: "O1 dec",
             title: "RET GAB CONF (*)",
             amount: "-1 500,00 EUR",
             key: 13,
@@ -90,49 +90,13 @@ export default createStore({
           },
           {
             shortMonth: "dec",
-            day: "05",
-            date: "O5 dec",
+            day: "0",
+            date: "O1 dec",
             title: "PAY 99008923 (*)",
             amount: "-5 299,00 EUR",
             key: 14,
             state: false,
           },
-          {
-            shortMonth: "dec",
-            day: "05",
-            date: "O5 dec",
-            title: "OPER. DEBIT REF :SECCART",
-            amount: "-3,03 EUR",
-            key: 15,
-            state: false,
-          },
-          {
-            shortMonth: "dec",
-            day: "04",
-            date: "O4 dec",
-            title: "RET GAB CONF (*)",
-            amount: "-100,00 EUR",
-            key: 16,
-            state: false,
-          },
-          {
-            shortMonth: "dec",
-            day: "04",
-            date: "O4 dec",
-            title: "RET GAB CONF (*)",
-            amount: "-2 000,00 EUR",
-            key: 17,
-            state: false,
-          },
-          {
-            shortMonth: "dec",
-            day: "04",
-            date: "O4 dec",
-            title: "RET GAB CONF (*)",
-            amount: "-2 000,00 EUR",
-            key: 18,
-            state: false,
-          }
         ]
       },
         {
