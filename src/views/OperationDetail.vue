@@ -13,7 +13,7 @@
         </span>
 
     </div>
-    <div class="summary">
+    <div v-if="$store.state.currentOperation" class="summary">
       <h2>{{ $store.state.currentOperation.title }}</h2>
       <div class="small">Montant</div>
       <div :class="{green: $store.state.currentOperation.state }" class="balance">
