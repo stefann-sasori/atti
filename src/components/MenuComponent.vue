@@ -7,9 +7,6 @@
               <img src="../assets/ui/logout.png" class="ui-icon" alt="">
             </span>
             <img src="../assets/images/logo-white.png" alt="">
-            <span class="icon-container">
-            <img src="../assets/ui/params.png " class="ui-icon" alt="">
-          </span>
           </div>
           <div class="menu-title">
             <span>... {{ $store.state.name }}</span>

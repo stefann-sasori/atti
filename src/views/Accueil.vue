@@ -6,9 +6,9 @@
         <span class="notif-count round-radius orange-bg">0</span>
       </div>
     </div>
-    <div class="chart-container">
-      <img src="../assets/images/chart.jpg" alt="">
-    </div>
+<!--    <div class="chart-container">-->
+<!--      <img src="../assets/images/chart.jpg" alt="">-->
+<!--    </div>-->
     <div class="content-text">
       <div class="color-em">Aujourd'hui</div>
       <div class="balance">
