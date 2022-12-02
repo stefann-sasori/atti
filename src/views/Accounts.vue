@@ -1,101 +1,42 @@
 <template>
-  <div  class="rib">
+  <div class="accueil">
     <div class="half-top">
       <div class="head">
-        <span @click="showHome()" class="icon-container angle-left">
-          <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
-        </span>
-        <span>RIB</span>
+          <span @click="$router.go(-1)" class="icon-container angle-left">
+            <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
+          </span>
+        <span>Mes comptes</span>
         <span class="absolute-right">
-<!--          <span class="icon-container">-->
-<!--            <img class="ui-icon" src="../assets/ui/rib.png" alt="">-->
-<!--          </span>-->
-          <span  @click="$router.push({name: 'Accueil'})" class="icon-container">
-            <img class="ui-icon" src="../assets/ui/home.png" alt="">
-          </span>
-        </span>
-
-      </div>
-    </div>
-    <div class="rib-summary">
-      <div class="logo-container">
-        <img src="../assets/images/logo.png" alt="">
-      </div>
-      <div class="name">{{ $store.state.name }}</div>
-      <div class="qrcode-container soft-shadow">
-        <img src="../assets/ui/qrcode.png" alt="">
-      </div>
-    </div>
-    <div class="rib-info">
-      <div>
-        <span class="icon-container">
-            <img class="ui-icon" src="../assets/ui/stack.png" alt="">
+            <span @click="$router.push({name: 'Accueil'})" class="icon-container">
+              <img class="ui-icon" src="../assets/ui/home.png" alt="">
+            </span>
           </span>
       </div>
-      <div>Compte Courant</div>
-      <div class="strong">Agence : UBA HEAD OFFICE MALI</div>
-      <div class="rib-iban">
-        <div class="rib-iban-component">
-          <div class="iban-title">Code Banque</div>
-          <div class="iban-value">MA067</div>
-        </div>
-        <div class="rib-iban-component">
-          <div class="iban-title">Code Agence</div>
-          <div class="iban-value">01514</div>
-        </div>
-        <div class="rib-iban-component">
-          <div class="iban-title">N° Compte</div>
-          <div class="iban-value">514100000245</div>
-        </div>
-        <div class="rib-iban-component">
-          <div class="iban-title">Clé RIB</div>
-          <div class="iban-value">69</div>
-        </div>
-      </div>
-      <div class="swift">Code swift : <span>UNAFMLBA</span></div>
-    </div>
-    <div class="rib-sharing">
-      <span class="icon-container round-radius dark-orange-bg">
-            <img class="ui-icon" src="../assets/ui/share.png" alt="">
-          </span>
 
-      <div class="strong">Que voulez-vous partager?</div>
-      <div class="share-options">
-        <div class="share-option">
-          <img src="../assets/ui/qr-icon.png" class="ui-icon" alt=""> <span>QR Code</span>
-        </div>
-        <div class="share-option">
-          <img src="../assets/ui/text-select.png" class="ui-icon" alt=""> <span>Texte</span>
-        </div>
+    </div>
+    <div class="content-text">
+      <div class="color-em">Aujourd'hui</div>
+      <div class="balance">
+        {{ $store.state.balance }}
+      </div>
+      <div class="account-label">
+        Compte Courant <em>{{ $store.state.iban }}</em>
       </div>
     </div>
-    <div class="toolbar-content">
-      <div class="toolbar soft-shadow">
-
-        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
-          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
-        </span>
-
-        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
-          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
-        </span>
-
-        <span  @click="$router.push({name: 'Comptes'})"  class="icon-container">
-          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
-        </span>
-        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >-->
-        <!--          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">-->
-        <!--        </span>-->
-        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >-->
-        <!--          <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
-        <!--        </span>-->
+    <div class="account-list">
+      <div @click="showHistory()" class="account soft-shadow ">
+        <div class="balance">
+          {{ $store.state.balance }}
+        </div>
+        <div>{{ $store.state.iban }}5</div>
+        <div>Compte Courant</div>
       </div>
     </div>
     <transition name="fade">
       <div v-show="hiddenMenuOpen" class="hidden-menu">
         <div class="hidden-menu-content">
           <ul>
-            <li>
+            <li  @click="showRib()">
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/rib.png" alt="">
             </span>
@@ -140,7 +81,28 @@
         </div>
       </div>
     </transition>
+    <div class="toolbar-content">
+      <div class="toolbar soft-shadow">
 
+        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
+          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+        </span>
+
+        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
+          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
+        </span>
+
+        <span  @click="$router.push({name: 'Comptes'})"  class="icon-container">
+          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
+        </span>
+        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >-->
+        <!--          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">-->
+        <!--        </span>-->
+        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >-->
+        <!--          <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+        <!--        </span>-->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -152,7 +114,7 @@ import store from "@/store";
   components: {
   },
 })
-export default class RibView extends Vue {
+export default class Accueil extends Vue {
   hiddenMenuOpen = false;
   showHiddenMenu(){
     this.hiddenMenuOpen = true;
@@ -160,118 +122,52 @@ export default class RibView extends Vue {
   hideHiddenMenu(){
     this.hiddenMenuOpen = false;
   }
-  showHome(){
+  showHistory(){
     store.commit('showLoader');
     setTimeout(() => {
-      this.$router.push('accueil');
+      this.$router.push('history');
       store.commit('hideLoader');
-    }, 500);
+    }, 1000);
+  }
+  showRib(){
+    store.commit('showLoader');
+    setTimeout(() => {
+      this.$router.push('rib');
+      store.commit('hideLoader');
+    }, 1000);
   }
 }
 </script>
 <style scoped>
-.rib{
+.head {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.angle-left img.ui-icon {
+  height: 24px;
+  width: 16px;
+}
+span.icon-container.angle-left {
+  justify-content: start;
+}
+.half-top {
+  background-color: white;
+}
+span.absolute-right {
+  display: flex;
+}
+.accueil{
   background-color: #f9f9fb;
   min-height: 100vh;
+}
+.balance {
+  font-size: 2rem;
+  margin: .5rem 0;
 
-  display: flex;
-  flex-direction: column;
-  max-height: 100vh;
-}
-.rib-info {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  padding-top: 3rem;
-}
-.rib-info > div {
-  display: flex;
-  justify-content: center;
-}
-.strong {
-  font-weight: 600;
-}
-.rib-iban-component {
-  text-align: left;
-}
-.rib-iban {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between !important;
-  padding: 0 1rem;
-}
-.iban-value {
-  text-align: center;
-  font-size: .8rem;
-  background-color: #f9f9f9;
-  padding: .5rem .75rem;
-  border-radius: 3rem;
-}
-
-.iban-title {
-  font-size: .6rem;
-  color: #aaa;
-}
-.swift {
-  margin: 1rem;
-  font-size: .8rem;
-}
-.swift span {
-  font-size: .9rem;
-  line-height: 1.1rem;
-  margin-left: .5rem;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-.name {
-  font-weight: 600;
-  font-size: 1rem;
-}
-.qrcode-container img {
-  width: 96px;
-  height: 96px;
-}
-.qrcode-container {
-  width: 110px;
-  height: 110px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  padding: .5rem;
-  border-radius: .75rem;
-  position: relative;
-  margin: 1.5rem auto -2rem;
-}
-.rib-summary .logo-container img {
-  width: 100px;
-  margin: .5rem;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-.operation-options {
-  padding: 2rem 0;
-  padding-bottom: 1rem;
-}
-.month {
-  text-transform: uppercase;
-  margin-left: 1rem;
-  font-size: .9rem;
-}
-.operation-list {
-  text-align: left;
-  flex: 1;
-  height: auto;
-  overflow: auto;
-  padding-bottom: 10rem;
 }
 .hidden-menu {
   position: fixed;
@@ -284,7 +180,7 @@ export default class RibView extends Vue {
   box-sizing: border-box;
   align-items: self-end;
   display: flex;
-
+  z-index: 100;
 }
 .hidden-menu-content {
   background-color: white;
@@ -318,148 +214,12 @@ span.hidden-menu-text {
   justify-content: center;
   padding-bottom: 1rem;
 }
-.operations {
-  margin-top: .5rem;
-  border-bottom: solid 1px #ccc;
-}
-.operation {
-  display: flex;
-  align-items: center;
-  border-top: solid 1px #ccc;
-  font-size: .95rem;
-}
-
-
-.i-want {
-  position: absolute;
-  top: -1.5rem;
-  color: white;
-  padding: .5rem 2rem;
-  border-radius: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.operation .title {
-  padding: .37rem;
-  border-left: solid 1px #ed7f5c;
-  flex: 1;
-}
-.date {
-  background-color: #eee;
-  padding: .5rem;
-}
-.date span {
-  display: block;
-  line-height: 1;
-  font-size: .9rem;
-}
-.amount {
-  font-weight: 600;
-  color: #b5362d;
-  padding-right: 2.25rem;
-  position: relative;
-}
-.amount.green{
-  color: #5ab237;
-}
-
-.amount img.ui-icon {
-  position: absolute;
-  width: 9px;
-  height: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 1rem;
-}
-.operation-options .form-row {
-  display: flex;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  justify-content: space-between;
-  margin-top: 0;
-}
-.balance .absolute-right {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-.summary .balance {
-  position: relative;
-}
-.summary {
-  text-align: left;
-  padding: 1rem;
-  margin-top: 1rem;
-}
-.columns {
-  display: flex;
-  margin: 1rem 0;
-  font-weight: 600;
-}
-.column.last-column {
-  border-left: solid 1px #ccc;
-  padding-left: 2rem;
-}
-.columns .column {
-  /*width: 50%;*/
-}
-.form-row input {
-  border-radius: 1rem;
-  padding: .75rem;
-  padding-left: 3rem;
-  width: auto;
-}
-.column:not(.last-column){
-  padding-right: 2rem;
-}
-.columns .column div {
-  font-weight: normal;
-  font-size: .7rem;
-  color: #777;
-}
-.balance .badge {
-  font-size: .7rem;
-  background-color: #eee;
-  width: 4rem;
-  text-align: center;
-  color: #555;
-  border-radius: 2rem;
-  padding: .25rem;
-  line-height: 1;
-}
-.head {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-.angle-left img.ui-icon {
-  height: 24px;
-  width: 16px;
-}
-span.icon-container.angle-left {
-  justify-content: start;
-}
-.half-top {
-  background-color: white;
-}
-span.absolute-right {
-  display: flex;
-}
-.balance {
-  font-size: 2.5rem;
-  margin: 1rem 0;
-
-}
 .toolbar-content {
   position: fixed;
   bottom: 0;
   width: 100vw;
   padding: 2rem;
   box-sizing: border-box;
-  background-color: #f9f9fb;
 }
 .toolbar {
   display: flex;
@@ -480,9 +240,14 @@ span.absolute-right {
   background-color: #eee;
   height: 4.8rem;
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 .account-list {
   padding: 2rem;
-  height: 15rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -491,25 +256,31 @@ span.absolute-right {
 .account {
   background-color: white;
   border-radius: 1rem;
-  width: 13rem;
+  width: 15rem;
   padding: .5rem;
+  cursor: pointer;
 
 }
-.account .balance, .summary .balance {
-  font-size: 1.6rem;
+.account .balance {
+  font-size: 1.5rem;
   margin: 0;
   color: #5ab237;
+  width: 13rem;
+}
+.account-list .account {
+  font-size: .9rem;
 }
 .chart-container {
   width: 100vw;
   overflow-y: hidden;
   overflow-x: auto;
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 .content-text {
   text-align: left;
-  padding: 2rem 1.5rem;
+  padding: 1rem;
   background-color: white;
+  font-size: .9rem;
 }
 .notif-count {
   position: absolute;
@@ -527,11 +298,14 @@ span.absolute-right {
   padding: .5rem 3rem .5rem 1rem;
   border-radius: 5rem;
   font-size: .8rem;
-  position: relative;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
 }
 .notification-container{
   padding: 1rem;
   justify-content: right;
+  position: relative;
 }
 .flex {
   display: flex;
@@ -589,46 +363,8 @@ a{
 .orange-bg{
   background-color: #fd7853;
 }
-.dark-orange-bg{
-background-color: #e9643f;
-}
 .chart-container img {
-  height: 17rem;
-}
-.rib-sharing {
-  background-color: white;
-  margin-top: 3rem;
-  padding: 1rem;
-  padding-top: 0;
-}
-.share-options {
-  display: flex;
-  margin-top: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-.share-option {
-  display: flex;
-  align-items: center;
-  margin: 0 1rem;
-  background-color: #f0f0f0;
-  padding: .5rem 1rem;
-  width: 7rem;
-  border-radius: 3rem;
-  justify-content: center;
-  font-size: .9rem;
-}
-.share-option .ui-icon {
-  margin: 0 .5rem;
-  width: 24px;
-  height: 24px;
-}
-.rib-sharing .icon-container {
-  margin-top: -1rem;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: .5rem;
+  height: 16rem;
 }
 .bottom-fix-menu {
   position: fixed;
@@ -666,12 +402,6 @@ h1{
   margin: auto;
   padding: 1.5rem;
 }
-.form-row .input-icon {
-  left: 1.5rem;
-  /* border-radius: 3rem; */
-  width: 24px;
-  height: 24px;
-}
 .input-icon {
   position: absolute;
   top: 50%;
@@ -692,8 +422,8 @@ h2 {
 }
 .icon-container {
   /* padding: .25rem; */
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   display: flex;
   justify-content: center;

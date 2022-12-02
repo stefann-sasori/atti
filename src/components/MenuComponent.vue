@@ -6,7 +6,7 @@
             <span @click="logout()" class="icon-container">
               <img src="../assets/ui/logout.png" class="ui-icon" alt="">
             </span>
-            <img src="../assets/images/logoati-white.png" alt="">
+            <img src="../assets/images/logo-white.png" alt="">
             <span class="icon-container">
             <img src="../assets/ui/params.png " class="ui-icon" alt="">
           </span>
@@ -27,7 +27,7 @@
             Consultation
           </h5>
           <ul>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})" >
+            <li  @click="$router.push({name: 'Comptes'})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/stack.png" alt="">
             </span>
@@ -62,140 +62,35 @@
             Opérations
           </h5>
           <ul>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Virements'}})" >
-            <span  class="icon-container">
-              <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
-            </span>
+            <li  @click="$router.push({name: 'History'})" >
+              <span  class="icon-container">
+                <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+              </span>
               <span class="hidden-menu-text">Virements</span>
             </li>
             <li  @click="$router.push({name: 'Error', params: {title: 'Mes bénéficiaires'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/user-check.png" alt="">
-            </span>
+              <span class="icon-container">
+                <img class="ui-icon" src="../assets/ui/user-check.png" alt="">
+              </span>
               <span class="hidden-menu-text">Mes bénéficiaires</span>
             </li>
             <li  @click="$router.push({name: 'Error', params: {title: 'Cartes'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/card.png" alt="">
-            </span>
+              <span class="icon-container">
+                <img class="ui-icon" src="../assets/ui/card.png" alt="">
+              </span>
               <span class="hidden-menu-text">Cartes</span>
             </li>
             <li  @click="$router.push({name: 'Error', params: {title: 'Paiement de facture'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
-            </span>
+              <span class="icon-container">
+                <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
+              </span>
               <span class="hidden-menu-text">Paiement de factures</span>
             </li>
             <li  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayés'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/finger.png" alt="">
-            </span>
+              <span class="icon-container">
+                <img class="ui-icon" src="../assets/ui/finger.png" alt="">
+              </span>
               <span class="hidden-menu-text">Recharges prépayés</span>
-            </li>
-          </ul>
-          <h5 class="orange">
-            Service en ligne
-          </h5>
-          <ul>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Commande de chéquier/LCN'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Commande de chéquier/LCN</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Documents bancaires'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Documents bancaires</span>
-            </li>
-          </ul>
-          <h5 class="orange">
-            Titre et bourse
-          </h5>
-          <ul>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Portefeuille titres'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/camember.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Portefeuille titres</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Cotations boursières'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/chart2.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Cotations boursières</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Valeurs  liquidatives'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/chart.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Valeurs  liquidatives</span>
-            </li>
-
-            <li  @click="$router.push({name: 'Error', params: {title: 'Cours des  devises'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/money.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Cours des  devises</span>
-            </li>
-          </ul>
-          <h5 class="orange">
-            Contact
-          </h5>
-          <ul>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Réclamations'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/export.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Réclamations</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Assistance'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/call-center.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Assistance</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Agences'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/marker.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Agences</span>
-            </li>
-          </ul>
-          <h5 class="orange">
-            Infos
-          </h5>
-          <ul>
-            <li  @click="$router.push({name: 'Error', params: {title: 'FAQ'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/question-mark.png" alt="">
-            </span>
-              <span class="hidden-menu-text">FAQ</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Tarification'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/price-tag.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Tarification</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Sécurité'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/shield.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Sécurité</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Mentions légales'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/justicve.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Mentions légales</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Conditions générales d\'utilisation'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/hammer.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Conditions générales d'utilisation</span>
             </li>
           </ul>
         </div>

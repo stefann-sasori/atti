@@ -77,14 +77,33 @@
         </div>
       </div>
     </div>
+<!--    <div class="toolbar-content">-->
+<!--      <div @click="showHiddenMenu()" class="orange-bg soft-shadow i-want">-->
+<!--        Je voudrais...-->
+<!--      </div>-->
+<!--      <div class="toolbar soft-shadow">-->
+<!--        <span  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})"  class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/stack.png" alt="">-->
+<!--        </span>-->
+<!--        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">-->
+<!--        </span>-->
+
+<!--        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">-->
+<!--          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">-->
+<!--        </span>-->
+<!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >-->
+<!--          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">-->
+<!--        </span>-->
+<!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >-->
+<!--          <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+<!--        </span>-->
+<!--      </div>-->
+<!--    </div>-->
+
     <div class="toolbar-content">
-      <div @click="showHiddenMenu()" class="orange-bg soft-shadow i-want">
-        Je voudrais...
-      </div>
       <div class="toolbar soft-shadow">
-        <span  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})"  class="icon-container">
-          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
-        </span>
+
         <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
           <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
         </span>
@@ -92,12 +111,16 @@
         <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
           <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
         </span>
-        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >
-          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">
+
+        <span  @click="$router.push({name: 'Comptes'})"  class="icon-container">
+          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
         </span>
-        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >
-          <img class="ui-icon" src="../assets/ui/finger.png" alt="">
-        </span>
+        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >-->
+        <!--          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">-->
+        <!--        </span>-->
+        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >-->
+        <!--          <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+        <!--        </span>-->
       </div>
     </div>
 
@@ -113,9 +136,9 @@
               <span class="hidden-menu-text">Afficher mon RIB</span>
             </li>
             <li @click="$router.push({name: 'Error', params: {title: 'Consulter les opérations '}})">
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/clock.png" alt="">
-            </span>
+              <span class="icon-container">
+                <img class="ui-icon" src="../assets/ui/clock.png" alt="">
+              </span>
               <span class="hidden-menu-text">Consulter les opérations à venir</span>
             </li>
             <li @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})">
@@ -124,24 +147,24 @@
             </span>
               <span class="hidden-menu-text">Effectuer un virement</span>
             </li>
-            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Payer une facture</span>
-            </li>
-            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/finger.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>
-            </li>
-            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Consulter le relevé de compte</span>
-            </li>
+<!--            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">-->
+<!--            <span class="icon-container">-->
+<!--              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">-->
+<!--            </span>-->
+<!--              <span class="hidden-menu-text">Payer une facture</span>-->
+<!--            </li>-->
+<!--            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">-->
+<!--            <span class="icon-container">-->
+<!--              <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+<!--            </span>-->
+<!--              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>-->
+<!--            </li>-->
+<!--            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">-->
+<!--            <span class="icon-container">-->
+<!--              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">-->
+<!--            </span>-->
+<!--              <span class="hidden-menu-text">Consulter le relevé de compte</span>-->
+<!--            </li>-->
           </ul>
           <div @click="hideHiddenMenu()" class="close-button">
             <span class="icon-container round-radius orange-bg">
@@ -357,7 +380,7 @@ span.hidden-menu-text {
 }
 .column.last-column {
   border-left: solid 1px #ccc;
-  padding-left: 2rem;
+  padding-left: .5rem;
 }
 .columns .column {
   /*width: 50%;*/
@@ -372,7 +395,7 @@ span.hidden-menu-text {
   margin-right: .5rem;
 }
 .column:not(.last-column){
-  padding-right: 2rem;
+  padding-right: .5rem;
 }
 .columns .column div {
   font-weight: normal;

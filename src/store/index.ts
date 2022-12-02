@@ -3,10 +3,10 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     loading: false,
-    balance: "561,78 EUR",
-    iban: "0355 X 000000415",
-    name: "ALONSO TABOADA",
-    yesterdayBalance: "861,78 EUR",
+    balance: "1 683 815 000 CFA",
+    iban: "MA067 01514 514100000245 69",
+    name: "MATTEO CAPRA",
+    yesterdayBalance: "1 683 815 000 CFA",
     currentOperation: null,
     operations: [
       {

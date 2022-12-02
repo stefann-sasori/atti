@@ -1,17 +1,9 @@
 <template>
   <div class="login">
     <div class="login-content">
-      <div class="flex justify-content-between">
-        <span class="round-radius white-bg soft-shadow icon-container">
-          <img class="ui-icon  left" src="../assets/ui/switch.png" alt="">
-        </span>
-        <span class="round-radius grey-bg  icon-container">
-          <img class="ui-icon  right" src="../assets/ui/call-center.png" alt="">
-        </span>
 
-      </div>
       <div class="logo-container">
-        <img src="../assets/images/logoati.png" alt="">
+        <img src="../assets/images/logo-white.png" alt="">
       </div>
 <!--      <h1>Bienvenue sur votre banque en ligne</h1>-->
 
@@ -25,13 +17,11 @@
           <img src="../assets/ui/pass.png" class="ui-icon input-icon">
           <input v-model.trim="password" placeholder="Mot de passe"  type="password" name="password" id="inputPassword" class="form-control" required>
         </div>
-        <div class="form-row flex justify-content-left align-items-center">
-          <img class="ui-icon" src="../assets/ui/ticker.png" alt="">  <span style="margin-left: 1rem">Se souvenir de moi</span>
-        </div>
+
 
         <div class="form-row flex justify-content-between align-items-center">
-          <a class="color-em" href="#">Mot de passe oublié</a>
-          <a class="color-em" href="#">Identifiant oublié</a>
+          <a style="color: white"  href="#">Mot de passe oublié</a>
+          <a style="color:white" href="#">Identifiant oublié</a>
         </div>
         <div class="form-row">
           <hr>
@@ -41,15 +31,8 @@
           <button @click="connect()" class="btn" type="submit"> Connexion</button>
         </div>
 
-
-
     </div>
-    <div class="bottom-fix-menu">
-      <div class="icon-container round-radius orange-bg">
-        <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
-      </div>
 
-    </div>
   </div>
 </template>
 
@@ -67,7 +50,7 @@ export default class Login extends Vue {
   public connect(){
     store.commit('showLoader');
     setTimeout(() => {
-      if(this.uuid === "Uy53128927" && this.password === "Jasper2112"){
+      if(this.uuid === "741741" && this.password === "0112"){
         this.$router.push('accueil');
       }
       store.commit('hideLoader');
@@ -164,6 +147,7 @@ h1{
   max-width: 100%;
   margin: auto;
   padding: 1.5rem;
+  background-color: #d82416;
 }
 .input-icon {
   position: absolute;
@@ -279,8 +263,8 @@ input:focus{
 }
 .form-row button.btn {
   text-align: center;
-  background-color: #ed7f5c;
-  color: white;
+  color: #d82416;
+  background-color: white;
   /* font-weight: 300; */
   margin-top: 2rem;
   padding: .5rem;

@@ -7,7 +7,7 @@
         </span>
       <span>Détail de l'opération</span>
       <span class="absolute-right">
-          <span @click="$router.push('accueil')" class="icon-container">
+          <span @click="$router.push({name: 'Accueil'})" class="icon-container">
             <img class="ui-icon" src="../assets/ui/home.png" alt="">
           </span>
         </span>
