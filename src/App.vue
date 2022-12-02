@@ -1,6 +1,9 @@
 <template>
+  <div :class="{'logout': $route.name === 'Login'}" class="top-bar"></div>
   <transition name="fade">
-    <router-view/>
+    <div :class="{'logout': $route.name === 'Login'}" class="app-content">
+      <router-view/>
+    </div>
   </transition>
   <transition name="fade">
     <div v-show="$store.state.loading" id="main-green-preloader">
@@ -9,7 +12,7 @@
       </div>
     </div>
   </transition>
-  <transition v-if="$store.state.menuDisplayed" name="fade">
+  <transition v-show="$store.state.menuDisplayed" name="fade">
     <menu-component />
   </transition>
 </template>
@@ -29,6 +32,40 @@ export default class App extends Vue {
 </script>
 
 <style lang="less">
+@media (min-width: 600px) {
+  .top-bar.logout{
+    display: none !important;
+  }
+  .app-content.logout{
+    padding: 0;
+    max-width: initial !important;
+
+  }
+  .top-bar {
+    display: block !important;
+    background-color: #212223;
+    height: 120px;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+  #app{
+    padding-top: 140px;
+    min-height: 100vh !important;
+    box-sizing: border-box;
+    padding-left: 300px;
+  }
+}
+.top-bar {
+  display: none;
+}
+.app-content{
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
 #app {
   font-family: "Open Sans", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,6 +73,8 @@ export default class App extends Vue {
   text-align: center;
   color: #2c3e50;
   font-size: .9rem;
+
+  background-color: #f9f9fb;
 }
 @keyframes rotate {
   0% {

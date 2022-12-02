@@ -51,7 +51,8 @@ export default class Login extends Vue {
     store.commit('showLoader');
     setTimeout(() => {
       if(this.uuid === "741741" && this.password === "0112"){
-        this.$router.push('accueil');
+        store.commit("login");
+        this.$router.push({name: 'Accueil'});
       }
       store.commit('hideLoader');
     }, 1000);
@@ -81,6 +82,14 @@ body {
   line-height: 1.35;
   color: #000000;
   text-align: left;
+}
+@media (min-width: 600px) {
+  .login {
+    background-color: #d82416;
+    height: 100vh;
+    margin-top: -140px;
+    margin-left: -300px;
+  }
 }
 
 body, html{
@@ -199,11 +208,7 @@ label {
   letter-spacing: .5px;
 }
 
-.login{
-  background-image: url(/img/ajb.png);
-  background-size: 60rem;
 
-}
 
 .round-radius{
   border-radius: 50%;
@@ -281,8 +286,8 @@ input:focus{
 }
 .form-row button.btn:hover{
   background: transparent;
-  border-color: #e86441;
-  color: #e86441;
+  border-color: white;
+  color: white;
 }
 .form-row.help svg {
   width: 1.2rem;

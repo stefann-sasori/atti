@@ -6,9 +6,10 @@
         <span class="notif-count round-radius orange-bg">0</span>
       </div>
     </div>
-<!--    <div class="chart-container">-->
+    <div class="chart-container">
 <!--      <img src="../assets/images/chart.jpg" alt="">-->
-<!--    </div>-->
+      <canvas id="myChart"></canvas>
+    </div>
     <div class="content-text">
       <div class="color-em">Aujourd'hui</div>
       <div class="balance">
@@ -104,6 +105,7 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import store from "@/store";
+import {Chart, ChartConfiguration, CategoryScale, LinearScale, LineController, PointElement, LineElement} from "chart.js";
 
 @Options({
   components: {
@@ -111,6 +113,60 @@ import store from "@/store";
 })
 export default class Accueil extends Vue {
   hiddenMenuOpen = false;
+
+  mounted() {
+    Chart.register(CategoryScale, LinearScale, LineController, PointElement, LineElement);
+    const DATA_COUNT = 2;
+    const labels = ["28 nov", "29 nov", "30 nov", "1 dec"];
+    const datapoints = [0, 1683815000];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Opérations',
+          data: datapoints,
+          borderColor: "#FF0000",
+          fill: false,
+          cubicInterpolationMode: 'monotone',
+          tension: 0.4
+        }
+      ]
+    };
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Opérations'
+          },
+        },
+        interaction: {
+          intersect: false,
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              // text: 'Value'
+            },
+          }
+        }
+      },
+    };
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx as HTMLCanvasElement, config as ChartConfiguration
+  );
+  }
   showHiddenMenu(){
     this.hiddenMenuOpen = true;
   }
@@ -134,6 +190,34 @@ export default class Accueil extends Vue {
 }
 </script>
 <style scoped>
+@media (min-width: 600px) {
+  .toolbar-content{
+    display: none !important;
+  }
+  .hidden-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: self-end;
+    display: flex;
+  }
+  .hidden-menu-content {
+    background-color: white;
+    border-radius: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .accueil{
+    min-height: auto !important;
+  }
+}
 .accueil{
   background-color: #f9f9fb;
   min-height: 100vh;
@@ -245,10 +329,13 @@ span.hidden-menu-text {
   font-size: .9rem;
 }
 .chart-container {
-  width: 100vw;
+  width: 100%;
   overflow-y: hidden;
   overflow-x: auto;
-  padding-top: 8rem;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  background-color: white;
+
 }
 .content-text {
   text-align: left;

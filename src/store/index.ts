@@ -8,6 +8,7 @@ export default createStore({
     name: "MATTEO CAPRA",
     yesterdayBalance: "1 683 815 000 CFA",
     currentOperation: null,
+    logged: false,
     operations: [
       {
         key: 1,
@@ -30,6 +31,12 @@ export default createStore({
     menuDisplayed: false,
   },
   mutations: {
+    login(state){
+      state.logged = true;
+    },
+    logout(state){
+      state.logged = false;
+    },
     showLoader(state){
       state.loading = true;
     },

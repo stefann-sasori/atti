@@ -50,6 +50,16 @@ export default class ErrorView extends Vue {
 </script>
 
 <style scoped>
+@media (min-width: 600px) {
+  .operation-detail{
+    min-height: initial !important;
+    max-height: initial !important;
+  }
+  .toolbar{
+    display: none !important;
+  }
+}
+
 .operation-detail{
   background-color: #f9f9fb;
   min-height: 100vh;

@@ -220,6 +220,15 @@ export default class HistoryView extends Vue {
 }
 </script>
 <style scoped>
+@media (min-width: 600px) {
+  .history{
+    min-width: auto !important;
+    min-height: auto !important;
+  }
+  .toolbar{
+    display: none !important;
+  }
+}
 .history{
   background-color: #f9f9fb;
   min-height: 100vh;

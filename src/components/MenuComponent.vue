@@ -1,15 +1,15 @@
 <template>
-  <div class="hidden-menu menu-component">
+  <div class="hidden-menu menu-component" :class="{'logout': $route.name === 'Login'}">
       <div class="hidden-menu-content">
         <div class="menu-head">
           <div class="action-icons">
-            <span @click="logout()" class="icon-container">
+            <span @click="logout()" class="icon-container logout-button">
               <img src="../assets/ui/logout.png" class="ui-icon" alt="">
             </span>
             <img src="../assets/images/logo-white.png" alt="">
           </div>
           <div class="menu-title">
-            <span>... {{ $store.state.name }}</span>
+            <span>{{ $store.state.name }}</span>
           </div>
         </div>
         <div class="operation-options">
@@ -71,12 +71,6 @@
               </span>
               <span class="hidden-menu-text">Mes bénéficiaires</span>
             </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Cartes'}})" >
-              <span class="icon-container">
-                <img class="ui-icon" src="../assets/ui/card.png" alt="">
-              </span>
-              <span class="hidden-menu-text">Cartes</span>
-            </li>
             <li  @click="$router.push({name: 'Error', params: {title: 'Paiement de facture'}})" >
               <span class="icon-container">
                 <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
@@ -114,12 +108,56 @@ export default class MenuComponent extends Vue {
 
   logout(){
     store.commit('hideMenu');
-    this.$router.push('Login')
+    store.commit("logout");
+    this.$router.push({name: 'Login'});
   }
 }
 </script>
 
 <style scoped>
+@media (min-width: 600px) {
+  .menu-component{
+    padding: 0 !important;
+    width: 300px !important;
+    z-index: 150;
+  }
+
+  .menu-component.logout{
+    display: none !important;
+  }
+
+  .close-button{
+    display: none !important;
+  }
+  .hidden-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: self-end;
+    display: flex !important;
+  }
+  .hidden-menu-content {
+    background-color: white;
+    border-radius: 0 !important;
+    position: absolute;
+    top: 0 !important;
+    left: 0 !important;
+    overflow: hidden;
+    display: flex !important;
+    flex-direction: column;
+    width: 300px !important;
+    height: 100% !important;
+  }
+  .toolbar{
+    display: none !important;
+  }
+}
+.logout-button{
+  cursor: pointer;
+}
+
 .history{
   background-color: #f9f9fb;
   min-height: 100vh;

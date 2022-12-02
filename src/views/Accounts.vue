@@ -139,6 +139,17 @@ export default class Accueil extends Vue {
 }
 </script>
 <style scoped>
+
+@media (min-width: 600px) {
+  .accueil{
+    min-height: initial !important;
+    max-height: initial !important;
+  }
+  .toolbar{
+    display: none !important;
+  }
+}
+
 .head {
   display: flex;
   justify-content: space-between;

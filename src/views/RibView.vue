@@ -170,6 +170,12 @@ export default class RibView extends Vue {
 }
 </script>
 <style scoped>
+@media (min-width: 600px) {
+  .rib {
+    min-height: initial !important;
+    max-height: initial !important;
+  }
+}
 .rib{
   background-color: #f9f9fb;
   min-height: 100vh;
