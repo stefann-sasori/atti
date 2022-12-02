@@ -8,7 +8,25 @@ export default createStore({
     name: "MATTEO CAPRA",
     yesterdayBalance: "1 683 815 000 CFA",
     currentOperation: null,
-    operations: [],
+    operations: [
+      {
+        key: 1,
+        month: 'novembre 2022',
+        list:[
+          {
+            shortMonth: "nov",
+            day: "29",
+            date: "29 nov",
+            title: "DEPOT INITIAL",
+            amount: "1 683 815 000 CFA",
+            key: 1,
+            state: true,
+          },
+        ]
+      },
+
+
+    ],
     menuDisplayed: false,
   },
   mutations: {
