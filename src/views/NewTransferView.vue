@@ -5,7 +5,7 @@
         <span @click="showHome()" class="icon-container angle-left">
           <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
         </span>
-        <span>Cartes de débit</span>
+        <span>Faire un virement</span>
         <span class="absolute-right">
           <span  @click="$router.push({name: 'Accueil'})" class="icon-container">
             <img class="ui-icon" src="../assets/ui/home.png" alt="">
@@ -46,47 +46,27 @@
 <!--    </div>-->
 
     <div class="operation-list">
-      <div class="operation-group">
-        <div class="month">
-          Liste des Bénéficiaires
-        </div>
-        <div class="operations">
-          <div  class="operation soft-shadow" v-for="beneficiary in $store.state.beneficiaries"  :key="beneficiary._id">
-            <div class="title">
-
-            </div>
-            <div class="card-name">
-              <div class="card-number">
-                {{ beneficiary.nom }}
-              </div>
-              <div class="holder">
-                Iban: {{ beneficiary.iban }} - <span style="font-weight: 300">Code Swift / Bic:</span> <strong class="green">{{ beneficiary.swift }}</strong>
-                <div v-if="beneficiary.state" class="green">Actif</div>
-                <div v-else class="red">Inactif</div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
       <div style="margin-top: 2rem;" class="operation-group">
         <div class="month">
-          Ajouter un bénéficiaire
+          Informations sur le virement
         </div>
         <div class="operations">
           <form @submit.prevent="save()" class="soft-shadow form">
-            <label>Nom du bénéficiaire
-              <input v-model.trim="nom" type="text" required placeholder="John Doe">
+            <label>Bénéficiaire
+              <select v-model="beneficiaryId">
+                <option :key="beneficiary._id" v-for="beneficiary in $store.state.beneficiaries" :value="beneficiary._id">
+                  {{ beneficiary.nom }}
+                </option>
+              </select>
             </label>
-            <label>Iban
-              <input v-model.trim="iban" type="text" required>
+            <label>Motif
+              <input v-model.trim="title" type="text" required>
             </label>
-            <label>Code Swift / BIC
-              <input v-model.trim="swift" type="text" required >
+            <label>Amount
+              <input v-model.trim="swift" type="number" required >
             </label>
             <div class="button-container">
-              <button type="submit" class="button-3">Ajouter {{ nom }}</button>
+              <button type="submit" class="button-3">Valider</button>
             </div>
 
           </form>
@@ -206,12 +186,11 @@ import axios, {AxiosResponse} from "axios";
     MenuComponent,
   },
 })
-export default class BenefView extends Vue {
+export default class NewTransferView extends Vue {
   hiddenMenuOpen = false;
-  iban = "";
-  nom = "";
-  swift = "";
-  state = false;
+  title = "";
+  amount = 0;
+  beneficiaryId = "";
 
   mounted(){
     store.dispatch("loadBeneficiaries");
@@ -225,22 +204,27 @@ export default class BenefView extends Vue {
   }
 
   save() {
-    const beneficiary = {
-      iban: this.iban,
-      nom: this.nom,
-      swift: this.swift,
-      state: false
+    var m = new Date();
+    var dateString =  (m.getUTCMonth()+1)+"/"+ m.getUTCDate() +"/"+ m.getUTCFullYear() + " " + m.getUTCHours() + ":" + m.getUTCMinutes();
+    const transfer = {
+      title: this.title,
+      amount: this.amount,
+      beneficiaryId: this.beneficiaryId,
+      state: false,
+      date: dateString
     }
     store.commit('showLoader');
-    axios.post("https://ubadb-09f5.restdb.io/rest/beneficiaires", beneficiary, {
+    axios.post("https://ubadb-09f5.restdb.io/rest/virements", transfer, {
       headers: {
         "content-type": "application/json",
         "cache-control": "no-cache",
         "x-apikey": store.state.apiKey
       }
     }).then((response: AxiosResponse) => {
-      store.commit("addBenef", response.data);
+      store.commit("addTransfer", response.data);
       store.commit('hideLoader');
+      alert("Votre virement a été enregistré avec succés");
+      this.$router.push({name: "History"});
     })
   }
 
@@ -266,6 +250,14 @@ export default class BenefView extends Vue {
 .form {
   padding: 1rem;
   background-color: white;
+}
+
+select {
+  width: 100%;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: .5rem;
+  padding: 1rem;
 }
 
                                                    /* CSS */

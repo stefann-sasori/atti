@@ -11,6 +11,7 @@ import ErrorView from "@/views/ErrorView.vue";
 import CardsView from "@/views/CardsView.vue";
 import TransactionStatement from "@/views/TransactionStatement.vue";
 import BenefView from "@/views/BenefView.vue";
+import NewTransferView from "@/views/NewTransferView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -22,6 +23,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/cards',
     name: 'Cards',
     component: CardsView,
+  },
+  {
+    path: '/new-transfer',
+    name: 'NewTransfer',
+    component: NewTransferView,
   },
   {
     path: '/beneficiaries',

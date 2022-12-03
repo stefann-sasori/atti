@@ -65,6 +65,12 @@
               </span>
               <span class="hidden-menu-text">Virements</span>
             </li>
+            <li  @click="$router.push({name: 'NewTransfer'})" >
+              <span  class="icon-container">
+                <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+              </span>
+              <span class="hidden-menu-text">Faire un virement</span>
+            </li>
             <li  @click="$router.push({name: 'Benefs'})">
               <span class="icon-container">
                 <img class="ui-icon" src="../assets/ui/user-check.png" alt="">

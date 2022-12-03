@@ -72,7 +72,7 @@
     <div class="toolbar-content">
       <div class="toolbar soft-shadow">
 
-        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
+        <span  @click="$router.push({name: 'NewTransfer'})"  class="icon-container">
           <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
         </span>
 
