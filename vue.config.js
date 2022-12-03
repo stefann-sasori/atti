@@ -3,10 +3,10 @@ module.exports = {
     // ...other vue-cli plugin options...
     pwa: {
         name: 'Entreprise',
-        themeColor: '#fff',
-        msTileColor: '#fff',
+        themeColor: '#d82416',
+        msTileColor: '#d82416',
         appleMobileWebAppCapable: 'yes',
-        appleMobileWebAppStatusBarStyle: 'white',
+        appleMobileWebAppStatusBarStyle: '#d82416',
         iconPaths: {
             favicon32: 'img/pwa/32x32.png',
             favicon16: 'img/pwa/16x16.png',
