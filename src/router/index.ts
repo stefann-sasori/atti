@@ -8,13 +8,25 @@ import RibView from "@/views/RibView.vue";
 import OperationDetail from "@/views/OperationDetail.vue";
 import store from '@/store';
 import ErrorView from "@/views/ErrorView.vue";
+import CardsView from "@/views/CardsView.vue";
 import TransactionStatement from "@/views/TransactionStatement.vue";
+import BenefView from "@/views/BenefView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/cards',
+    name: 'Cards',
+    component: CardsView,
+  },
+  {
+    path: '/beneficiaries',
+    name: 'Benefs',
+    component: BenefView,
   },
   {
     path: '/accueil',
@@ -46,6 +58,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Error',
     component: ErrorView,
   },
+
   {
     path: '/rib',
     name: 'Rib',

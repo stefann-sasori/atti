@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios, {AxiosResponse} from "axios";
 
 export default createStore({
   state: {
@@ -8,7 +9,9 @@ export default createStore({
     name: "MATTEO CAPRA",
     yesterdayBalance: "1 683 815 000 CFA",
     currentOperation: null,
-    logged: false,
+    logged: true,
+    apiKey: "638a7f5dc890f30a8fd1f6d9",
+    beneficiaries: [] as any[],
     operations: [
       {
         key: 1,
@@ -31,6 +34,9 @@ export default createStore({
     menuDisplayed: false,
   },
   mutations: {
+    addBenef(state, benef){
+      state.beneficiaries.push(benef);
+    },
     login(state){
       state.logged = true;
     },
@@ -71,6 +77,20 @@ export default createStore({
     }
   },
   actions: {
+    loadBeneficiaries(context) {
+      axios.get("https://ubadb-09f5.restdb.io/rest/beneficiaires", {
+        headers: {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "x-apikey": context.state.apiKey
+        }
+      }).then((response: AxiosResponse) => {
+        context.state.beneficiaries = [];
+        response.data.forEach((obj: any) => {
+          context.commit("addBenef", obj);
+        } );
+      });
+    }
   },
   modules: {
   }

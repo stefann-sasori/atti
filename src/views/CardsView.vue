@@ -1,163 +1,250 @@
 <template>
-  <div class="hidden-menu menu-component" :class="{'logout': $route.name === 'Login'}">
-      <div class="hidden-menu-content">
-        <div class="menu-head">
-          <div class="action-icons">
-            <span @click="logout()" class="icon-container logout-button">
-              <img src="../assets/ui/logout.png" class="ui-icon" alt="">
-            </span>
-            <img src="../assets/images/logo-white.png" alt="">
+  <div class="histcardsory">
+    <div class="half-top">
+      <div class="head">
+        <span @click="showHome()" class="icon-container angle-left">
+          <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
+        </span>
+        <span>Cartes de débit</span>
+        <span class="absolute-right">
+          <span  @click="$router.push({name: 'Accueil'})" class="icon-container">
+            <img class="ui-icon" src="../assets/ui/home.png" alt="">
+          </span>
+        </span>
+
+      </div>
+      <div class="summary">
+        <div>
+          {{ $store.state.name }}
+        </div>
+        <div class="balance">
+          {{ $store.state.balance }}
+          <div class="badge">Solde réel</div>
+          <span class="absolute-right">
+<!--            <span @click="showRib()" class="icon-container">-->
+<!--              <img class="ui-icon" src="../assets/ui/rib.png" alt="">-->
+<!--            </span>-->
+          </span>
+        </div>
+        <div class="columns">
+          <div class="column">
+            {{ $store.state.yesterdayBalance }}
+            <div>Solde du {{ yesterday() }}</div>
           </div>
-          <div class="menu-title">
-            <span>{{ $store.state.name }}</span>
+          <div class="column last-column">
+            {{ $store.state.iban }}
+            <div>Compte Courant</div>
           </div>
         </div>
-        <div class="operation-options">
-          <div class="form-row">
-            <img src="../assets/ui/search.png" alt="" class="ui-icon input-icon">
-            <input type="text" class="soft-shadow" placeholder="Chercher...">
+      </div>
+
+
+    </div>
+
+<!--    <div class="operation-options">-->
+<!--      <div class="form-row">-->
+<!--        <img src="../assets/ui/search.png" alt="" class="ui-icon input-icon">-->
+<!--        <input type="text" class="soft-shadow" placeholder="Chercher...">-->
+<!--        <span class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/stack2.png" alt="">-->
+<!--        </span>-->
+<!--        <span class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/calendar.png" alt="">-->
+<!--        </span>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+    <div class="operation-list">
+      <div class="operation-group">
+        <div class="month">
+          Carte de debit
+        </div>
+        <div class="operations">
+          <div  class="operation" >
+            <div class="date">
+              <img src="../assets/images/img_1.png" alt="">
+            </div>
+
+            <div class="title">
+
+            </div>
+            <div class="card-name">
+              <div class="card-number">
+                4286 **** **** 0491
+              </div>
+              <div class="holder">
+                {{ $store.state.name }} - <strong class="green">08/25</strong>
+                <div class="red">Inactif</div>
+              </div>
+
+            </div>
+
           </div>
-        </div>
-
-        <div class="menu-item-list">
-          <h5 class="orange">
-            Consultation
-          </h5>
-          <ul>
-            <li  @click="$router.push({name: 'Comptes'})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/stack.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Comptes</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Impayés'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/sheet-chart.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Impayés</span>
-            </li>
-            <li  @click="$router.push({name: 'Cards'})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/card.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Cartes</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Cartes conventionnées'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/card.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Cartes conventionnées</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Tombées et échéances'}})" >
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/calendar.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Tombées et échéances</span>
-            </li>
-          </ul>
-          <h5 class="orange">
-            Opérations
-          </h5>
-          <ul>
-            <li  @click="$router.push({name: 'History'})" >
-              <span  class="icon-container">
-                <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
-              </span>
-              <span class="hidden-menu-text">Virements</span>
-            </li>
-            <li  @click="$router.push({name: 'Benefs'})">
-              <span class="icon-container">
-                <img class="ui-icon" src="../assets/ui/user-check.png" alt="">
-              </span>
-              <span class="hidden-menu-text">Mes bénéficiaires</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Paiement de facture'}})" >
-              <span class="icon-container">
-                <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
-              </span>
-              <span class="hidden-menu-text">Paiement de factures</span>
-            </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayés'}})" >
-              <span class="icon-container">
-                <img class="ui-icon" src="../assets/ui/finger.png" alt="">
-              </span>
-              <span class="hidden-menu-text">Recharges prépayés</span>
-            </li>
-          </ul>
-        </div>
-
-
-        <div @click="$store.commit('hideMenu')" class="close-button">
-            <span class="icon-container round-radius orange-bg">
-              <img class="ui-icon" src="../assets/ui/close.png" alt="">
-            </span>
         </div>
       </div>
     </div>
+<!--    <div class="toolbar-content">-->
+<!--      <div @click="showHiddenMenu()" class="orange-bg soft-shadow i-want">-->
+<!--        Je voudrais...-->
+<!--      </div>-->
+<!--      <div class="toolbar soft-shadow">-->
+<!--        <span  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})"  class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/stack.png" alt="">-->
+<!--        </span>-->
+<!--        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">-->
+<!--        </span>-->
+
+<!--        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">-->
+<!--          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">-->
+<!--        </span>-->
+<!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >-->
+<!--          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">-->
+<!--        </span>-->
+<!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >-->
+<!--          <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+<!--        </span>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="toolbar-content">
+      <div class="toolbar soft-shadow">
+
+        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
+          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+        </span>
+
+        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
+          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
+        </span>
+
+        <span  @click="$router.push({name: 'Comptes'})"  class="icon-container">
+          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
+        </span>
+        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >-->
+        <!--          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">-->
+        <!--        </span>-->
+        <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >-->
+        <!--          <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+        <!--        </span>-->
+      </div>
+    </div>
+
+
+    <transition name="fade">
+      <div v-show="hiddenMenuOpen" class="hidden-menu">
+        <div class="hidden-menu-content">
+          <ul>
+            <li  @click="showRib()">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/rib.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Afficher mon RIB</span>
+            </li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Consulter les opérations '}})">
+              <span class="icon-container">
+                <img class="ui-icon" src="../assets/ui/clock.png" alt="">
+              </span>
+              <span class="hidden-menu-text">Consulter les opérations à venir</span>
+            </li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Effectuer un virement</span>
+            </li>
+<!--            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">-->
+<!--            <span class="icon-container">-->
+<!--              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">-->
+<!--            </span>-->
+<!--              <span class="hidden-menu-text">Payer une facture</span>-->
+<!--            </li>-->
+<!--            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">-->
+<!--            <span class="icon-container">-->
+<!--              <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+<!--            </span>-->
+<!--              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>-->
+<!--            </li>-->
+<!--            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">-->
+<!--            <span class="icon-container">-->
+<!--              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">-->
+<!--            </span>-->
+<!--              <span class="hidden-menu-text">Consulter le relevé de compte</span>-->
+<!--            </li>-->
+          </ul>
+          <div @click="hideHiddenMenu()" class="close-button">
+            <span class="icon-container round-radius orange-bg">
+              <img class="ui-icon" src="../assets/ui/close.png" alt="">
+            </span>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts">
+import { Options, Vue } from 'vue-class-component';
 import store from "@/store";
-import {Options, Vue} from "vue-class-component";
+import {DateTime} from "luxon";
+import router from "@/router";
+import MenuComponent from "@/components/MenuComponent.vue";
 
 @Options({
   components: {
+    MenuComponent,
   },
 })
-export default class MenuComponent extends Vue {
-
-  logout(){
-    store.commit('hideMenu');
-    store.commit("logout");
-    this.$router.push({name: 'Login'});
+export default class CardsView extends Vue {
+  hiddenMenuOpen = false;
+  yesterday(){
+    return DateTime.now().setLocale('en-gb').minus({days: 1}).toLocaleString();
+  }
+  showHiddenMenu(){
+    this.hiddenMenuOpen = true;
+  }
+  hideHiddenMenu(){
+    this.hiddenMenuOpen = false;
+  }
+  showDetail(monthKey: any, operationKey: any){
+    router.push({name: 'Detail', params: {monthKey: monthKey, operationKey: operationKey} });
+  }
+  showRib(){
+    store.commit('showLoader');
+    setTimeout(() => {
+      this.$router.push('rib');
+      store.commit('hideLoader');
+    }, 500);
+  }
+  showHome(){
+    store.commit('showLoader');
+    setTimeout(() => {
+      this.$router.push('accueil');
+      store.commit('hideLoader');
+    }, 500);
   }
 }
 </script>
-
 <style scoped>
 @media (min-width: 600px) {
-  .menu-component{
-    padding: 0 !important;
-    width: 300px !important;
-    z-index: 150;
-  }
-
-  .menu-component.logout{
-    display: none !important;
-  }
-
-  .close-button{
-    display: none !important;
-  }
-  .hidden-menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 0;
-    box-sizing: border-box;
-    align-items: self-end;
-    display: flex !important;
-  }
-  .hidden-menu-content {
-    background-color: white;
-    border-radius: 0 !important;
-    position: absolute;
-    top: 0 !important;
-    left: 0 !important;
-    overflow: hidden;
-    display: flex !important;
-    flex-direction: column;
-    width: 300px !important;
-    height: 100% !important;
+  .history{
+    min-width: auto !important;
+    min-height: auto !important;
   }
   .toolbar{
     display: none !important;
   }
 }
-.logout-button{
-  cursor: pointer;
+.date {
+  width: auto !important;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem !important;
 }
-
+.date img{
+  width: 64px;
+}
 .history{
   background-color: #f9f9fb;
   min-height: 100vh;
@@ -189,14 +276,6 @@ export default class MenuComponent extends Vue {
   overflow: auto;
   padding-bottom: 10rem;
 }
-h5 {
-  margin: 0;
-  text-align: left;
-  padding: 0 1rem;
-  text-transform: uppercase;
-}
-
-
 .hidden-menu {
   position: fixed;
   background-color: rgba(0,0,0,0.4);
@@ -210,65 +289,33 @@ h5 {
   display: flex;
 
 }
-.menu-item-list {
-  flex: 1;
-  overflow: auto;
-}
 .hidden-menu-content {
   background-color: white;
-  border-radius: 1.5rem;
-  width: calc(100% - 1rem);
+  border-radius: 3rem;
+  width: calc(100% - 2rem);
   position: absolute;
-  top: 1rem;
-  left: .5rem;
-  height: calc(100% - 2rem);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  bottom: 1rem;
+  left: 1rem;
 }
 .hidden-menu-content ul li {
   display: flex;
   align-items: center;
+  border-top: solid 1px #ccc;
   padding: 0;
 }
-.operation-options {
-  padding: 1rem !important;
-}
-.menu-head .action-icons img.ui-icon {
-  width: 32px;
-  height: 32px;
-}
-.menu-head{
-  background-color: #212223;
+.hidden-menu-content ul li:last-of-type{
+  border-bottom: solid 1px #ccc;
 }
 span.hidden-menu-text {
-  font-size: .8rem;
-  margin-left: 1rem;
+  font-size: .9rem;
 }
 .hidden-menu-content ul {
 
-  padding: 0 1.5rem;
+  padding: 2rem 1.5rem 0;
   list-style: none;
-  margin-top: 0;
-  border-bottom: solid 1px #eee;
-  padding-bottom: 1rem;
-}
-.action-icons > img {
-  width: 7rem;
-}
-.menu-title {
-  color: white;
-  font-weight: bold;
-  padding: .5rem;
-}
-.action-icons {
-  display: flex;
-  padding: 1rem 0;
-  justify-content: space-between;
-  margin: 0 1rem;
-  border-bottom: solid 1px #333;
-}
 
+
+}
 .close-button {
   display: flex;
   justify-content: center;
@@ -280,11 +327,21 @@ span.hidden-menu-text {
 }
 .operation {
   display: flex;
-  align-items: center;
   border-top: solid 1px #ccc;
   font-size: .95rem;
 }
 
+.card-name{
+  flex: 1;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+.card-name .card-number{
+  font-size: 1.3rem;
+}
+.holder{
+  font-weight: 300;
+}
 
 .i-want {
   position: absolute;
@@ -298,7 +355,6 @@ span.hidden-menu-text {
 .operation .title {
   padding: .37rem;
   border-left: solid 1px #ed7f5c;
-  flex: 1;
   font-size: .75rem;
 }
 .date {
@@ -318,9 +374,14 @@ span.hidden-menu-text {
   padding-right: 1.75rem;
   position: relative;
   font-size: .75rem;
+  display: flex;
+  align-items: center;
 }
-.amount.green{
+.green{
   color: #5ab237;
+}
+.red{
+  color: #b5362d;
 }
 
 .amount img.ui-icon {
@@ -358,22 +419,22 @@ span.hidden-menu-text {
 }
 .column.last-column {
   border-left: solid 1px #ccc;
-  padding-left: 2rem;
+  padding-left: .5rem;
 }
 .columns .column {
   /*width: 50%;*/
 }
 .form-row input {
+  border-radius: 1rem;
   padding: .5rem;
   padding-left: 2.5rem;
   width: auto;
   font-size: .9rem;
   flex: 1;
   margin-right: .5rem;
-  border-radius: .5rem;
 }
 .column:not(.last-column){
-  padding-right: 2rem;
+  padding-right: .5rem;
 }
 .columns .column div {
   font-weight: normal;
@@ -552,16 +613,8 @@ a{
 .orange-bg{
   background-color: #fd7853;
 }
-.orange{
-  color: #fd7853;
-}
 .chart-container img {
   height: 17rem;
-}
-.hidden-menu-content h5 + ul li .icon-container {
-  width: 32px;
-  height: 32px;
-  padding: .25rem 0;
 }
 .bottom-fix-menu {
   position: fixed;
@@ -741,5 +794,6 @@ input:focus{
   border-color: #e86441;
   color: #e86441;
 }
+
 
 </style>
