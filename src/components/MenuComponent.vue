@@ -134,6 +134,7 @@ export default class MenuComponent extends Vue {
 
   .close-button{
     display: none !important;
+
   }
   .hidden-menu {
     position: fixed;
@@ -278,7 +279,7 @@ span.hidden-menu-text {
 .close-button {
   display: flex;
   justify-content: center;
-  padding-bottom: 1rem;
+  padding-bottom: 4rem;
 }
 .operations {
   margin-top: .5rem;
