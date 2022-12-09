@@ -46,7 +46,7 @@ export default createStore({
             day: "09",
             date: "09 dec",
             title: "VIR SEPA /DEUTSCHE BANK S.P.A",
-            amount: "-12 248 500",
+            amount: "-12 248 500 CFA",
             key: 3,
             state: false,
           },
