@@ -1,8 +1,8 @@
 <template>
   <div class="accueil">
     <div class="notification-container flex">
-        <div @click="$router.push({name: 'Error', params: {title: 'Notifications'}})" class="notifications">
-        <span class="notif-text">Notifications</span>
+        <div @click="$router.push({name: 'Error', params: {title: 'Notifiche'}})" class="notifications">
+        <span class="notif-text">Notifiche</span>
         <span class="notif-count round-radius orange-bg">0</span>
       </div>
     </div>
@@ -11,12 +11,12 @@
       <canvas id="myChart"></canvas>
     </div>
     <div class="content-text">
-      <div class="color-em">Aujourd'hui</div>
+      <div class="color-em">Oggi</div>
       <div class="balance">
         {{ $store.state.balance }}
       </div>
       <div class="account-label">
-        Compte Courant <em>{{ $store.state.iban }}</em>
+        Conto corrente <em>{{ $store.state.iban }}</em>
       </div>
     </div>
     <div class="account-list">
@@ -25,7 +25,7 @@
           {{ $store.state.balance }}
         </div>
         <div>{{ $store.state.iban }}5</div>
-        <div>Compte Courant</div>
+        <div>Conto corrente</div>
       </div>
     </div>
     <transition name="fade">
@@ -36,37 +36,37 @@
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/rib.png" alt="">
             </span>
-              <span class="hidden-menu-text">Afficher mon RIB</span>
+              <span class="hidden-menu-text">Visualizza il mio RIB</span>
             </li>
             <li>
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/clock.png" alt="">
             </span>
-              <span class="hidden-menu-text">Consulter les opérations à venir</span>
+              <span class="hidden-menu-text">Visualizza le prossime operazioni</span>
             </li>
             <li>
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
             </span>
-              <span class="hidden-menu-text">Effectuer un virement</span>
+              <span class="hidden-menu-text">Effettuare un trasferimento</span>
             </li>
             <li>
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
             </span>
-              <span class="hidden-menu-text">Payer une facture</span>
+              <span class="hidden-menu-text">Pagare una fattura</span>
             </li>
             <li>
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/finger.png" alt="">
             </span>
-              <span class="hidden-menu-text">Recharger mobile ou Jawz</span>
+              <span class="hidden-menu-text">Ricarica il cellulare o Jawz</span>
             </li>
             <li>
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
             </span>
-              <span class="hidden-menu-text">Consulter le relevé de compte</span>
+              <span class="hidden-menu-text">Visualizzare l'estratto conto</span>
             </li>
           </ul>
           <div @click="hideHiddenMenu()" class="close-button">
@@ -116,9 +116,9 @@ export default class Accueil extends Vue {
 
   mounted() {
     Chart.register(CategoryScale, LinearScale, LineController, PointElement, LineElement);
-    const DATA_COUNT = 2;
-    const labels = ["28 nov", "29 nov", "30 nov", "1 dec"];
-    const datapoints = [0, 1683815000];
+    const DATA_COUNT = 9;
+    const labels = ["01 dec", "01 dec", "01 dec", "02 dec", "02 dec", "02 dec", "02 dec", "08 dec", "09 dec"];
+    const datapoints = [-5299,-1500, -11, -660.97, -18, -1000, -1000, -100, -250000];
     const data = {
       labels: labels,
       datasets: [

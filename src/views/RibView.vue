@@ -5,7 +5,7 @@
         <span @click="showHome()" class="icon-container angle-left">
           <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
         </span>
-        <span>RIB</span>
+        <span>RNL</span>
         <span class="absolute-right">
 <!--          <span class="icon-container">-->
 <!--            <img class="ui-icon" src="../assets/ui/rib.png" alt="">-->
@@ -32,12 +32,12 @@
             <img class="ui-icon" src="../assets/ui/stack.png" alt="">
           </span>
       </div>
-      <div>Compte Courant</div>
-      <div class="strong">Agence : UBA HEAD OFFICE MALI</div>
+      <div>Conto corrente</div>
+      <div class="strong">Agenzia: MEDIOBANCA MILANO</div>
       <div class="rib-iban">
         <div class="rib-iban-component">
-          <div class="iban-title">Code Banque</div>
-          <div class="iban-value">MA067</div>
+          <div class="iban-title">Codice bancario</div>
+          <div class="iban-value">IT067</div>
         </div>
         <div class="rib-iban-component">
           <div class="iban-title">Code Agence</div>
@@ -52,7 +52,7 @@
           <div class="iban-value">69</div>
         </div>
       </div>
-      <div class="swift">Code swift : <span>UNAFMLBA</span></div>
+      <div class="swift">Code swift : <span>BAMEITMM</span></div>
     </div>
     <div class="rib-sharing">
       <span class="icon-container round-radius dark-orange-bg">

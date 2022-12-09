@@ -5,7 +5,7 @@
         <span @click="showHome()" class="icon-container angle-left">
           <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
         </span>
-        <span>Cartes de débit</span>
+        <span>Carte di debito</span>
         <span class="absolute-right">
           <span  @click="$router.push({name: 'Accueil'})" class="icon-container">
             <img class="ui-icon" src="../assets/ui/home.png" alt="">
@@ -19,7 +19,7 @@
         </div>
         <div class="balance">
           {{ $store.state.balance }}
-          <div class="badge">Solde réel</div>
+          <div class="badge">Saldo effettivo</div>
           <span class="absolute-right">
 <!--            <span @click="showRib()" class="icon-container">-->
 <!--              <img class="ui-icon" src="../assets/ui/rib.png" alt="">-->
@@ -61,8 +61,8 @@
               </div>
               <div class="holder">
                 Iban: {{ beneficiary.iban }} - <span style="font-weight: 300">Code Swift / Bic:</span> <strong class="green">{{ beneficiary.swift }}</strong>
-                <div v-if="beneficiary.state" class="green">Actif</div>
-                <div v-else class="red">Inactif</div>
+                <div v-if="beneficiary.state" class="green">Attività</div>
+                <div v-else class="red">Inattivo</div>
               </div>
 
             </div>
@@ -72,21 +72,21 @@
       </div>
       <div style="margin-top: 2rem;" class="operation-group">
         <div class="month">
-          Ajouter un bénéficiaire
+          Aggiungere un beneficiario
         </div>
         <div class="operations">
           <form @submit.prevent="save()" class="soft-shadow form">
-            <label>Nom du bénéficiaire
+            <label>Nome del beneficiario
               <input v-model.trim="nom" type="text" required placeholder="John Doe">
             </label>
             <label>Iban
               <input v-model.trim="iban" type="text" required>
             </label>
-            <label>Code Swift / BIC
+            <label>Swift / BIC
               <input v-model.trim="swift" type="text" required >
             </label>
             <div class="button-container">
-              <button type="submit" class="button-3">Ajouter {{ nom }}</button>
+              <button type="submit" class="button-3">Aggiungi {{ nom }}</button>
             </div>
 
           </form>
@@ -163,24 +163,24 @@
             </span>
               <span class="hidden-menu-text">Effectuer un virement</span>
             </li>
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Payer une facture</span>-->
-<!--            </li>-->
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>-->
-<!--            </li>-->
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Consulter le relevé de compte</span>-->
-<!--            </li>-->
+            <!--            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">-->
+            <!--            <span class="icon-container">-->
+            <!--              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">-->
+            <!--            </span>-->
+            <!--              <span class="hidden-menu-text">Payer une facture</span>-->
+            <!--            </li>-->
+            <!--            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">-->
+            <!--            <span class="icon-container">-->
+            <!--              <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+            <!--            </span>-->
+            <!--              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>-->
+            <!--            </li>-->
+            <!--            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">-->
+            <!--            <span class="icon-container">-->
+            <!--              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">-->
+            <!--            </span>-->
+            <!--              <span class="hidden-menu-text">Consulter le relevé de compte</span>-->
+            <!--            </li>-->
           </ul>
           <div @click="hideHiddenMenu()" class="close-button">
             <span class="icon-container round-radius orange-bg">

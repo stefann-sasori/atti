@@ -21,16 +21,16 @@
 
         <div class="menu-item-list">
           <h5 class="orange">
-            Consultation
+            Consultazione
           </h5>
           <ul>
             <li  @click="$router.push({name: 'Comptes'})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/stack.png" alt="">
             </span>
-              <span class="hidden-menu-text">Comptes</span>
+              <span class="hidden-menu-text">Conti</span>
             </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Impayés'}})" >
+            <li  @click="$router.push({name: 'Error', params: {title: 'Non pagato'}})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/sheet-chart.png" alt="">
             </span>
@@ -40,54 +40,54 @@
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/card.png" alt="">
             </span>
-              <span class="hidden-menu-text">Cartes</span>
+              <span class="hidden-menu-text">Carte</span>
             </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Cartes conventionnées'}})" >
+            <li  @click="$router.push({name: 'Error', params: {title: 'Carte convenzionali'}})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/card.png" alt="">
             </span>
-              <span class="hidden-menu-text">Cartes conventionnées</span>
+              <span class="hidden-menu-text">Carte convenzionali</span>
             </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Tombées et échéances'}})" >
+            <li  @click="$router.push({name: 'Error', params: {title: 'Scadenze e termini'}})" >
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/calendar.png" alt="">
             </span>
-              <span class="hidden-menu-text">Tombées et échéances</span>
+              <span class="hidden-menu-text">Scadenze e termini</span>
             </li>
           </ul>
           <h5 class="orange">
-            Opérations
+            Operazioni
           </h5>
           <ul>
             <li  @click="$router.push({name: 'History'})" >
               <span  class="icon-container">
                 <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
               </span>
-              <span class="hidden-menu-text">Virements</span>
+              <span class="hidden-menu-text">Trasferimenti</span>
             </li>
             <li  @click="$router.push({name: 'NewTransfer'})" >
               <span  class="icon-container">
                 <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
               </span>
-              <span class="hidden-menu-text">Faire un virement</span>
+              <span class="hidden-menu-text">Effettuare un trasferimento</span>
             </li>
             <li  @click="$router.push({name: 'Benefs'})">
               <span class="icon-container">
                 <img class="ui-icon" src="../assets/ui/user-check.png" alt="">
               </span>
-              <span class="hidden-menu-text">Mes bénéficiaires</span>
+              <span class="hidden-menu-text">I miei beneficiari</span>
             </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Paiement de facture'}})" >
+            <li  @click="$router.push({name: 'Error', params: {title: 'Pagamento della bolletta'}})" >
               <span class="icon-container">
                 <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
               </span>
-              <span class="hidden-menu-text">Paiement de factures</span>
+              <span class="hidden-menu-text">Pagamento della bolletta</span>
             </li>
-            <li  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayés'}})" >
+            <li  @click="$router.push({name: 'Error', params: {title: 'Ricariche prepagate'}})" >
               <span class="icon-container">
                 <img class="ui-icon" src="../assets/ui/finger.png" alt="">
               </span>
-              <span class="hidden-menu-text">Recharges prépayés</span>
+              <span class="hidden-menu-text">Ricariche prepagate</span>
             </li>
           </ul>
         </div>

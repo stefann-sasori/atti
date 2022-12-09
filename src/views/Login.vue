@@ -10,25 +10,25 @@
 
         <div class="form-row">
           <img src="../assets/ui/user.png" class="ui-icon input-icon">
-          <input v-model.trim="uuid"  placeholder="Nom d'utilisateur" type="text" name="uuid" id="inputUuid" class="form-control" required
+          <input v-model.trim="uuid"  placeholder="Nome utente" type="text" name="uuid" id="inputUuid" class="form-control" required
                  autofocus>
         </div>
         <div class="form-row">
           <img src="../assets/ui/pass.png" class="ui-icon input-icon">
-          <input v-model.trim="password" placeholder="Mot de passe"  type="password" name="password" id="inputPassword" class="form-control" required>
+          <input v-model.trim="password" placeholder="Password"  type="password" name="password" id="inputPassword" class="form-control" required>
         </div>
 
 
         <div class="form-row flex justify-content-between align-items-center">
-          <a style="color: white"  href="#">Mot de passe oublié</a>
-          <a style="color:white" href="#">Identifiant oublié</a>
+          <a style="color: white"  href="#">Avete dimenticato la password?</a>
+          <a style="color:white" href="#">Dimenticato i dati di accesso?</a>
         </div>
         <div class="form-row">
           <hr>
         </div>
 
         <div class="form-row">
-          <button @click="connect()" class="btn" type="submit"> Connexion</button>
+          <button @click="connect()" class="btn" type="submit"> Connessione</button>
         </div>
 
     </div>

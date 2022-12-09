@@ -15,7 +15,7 @@
 
     </div>
     <div class="center-message">
-      Cette fonctionnalité n'est pas encore disponible sur ce compte
+      Questa funzione non è ancora disponibile su questo account
     </div>
     <div class="toolbar-content">
       <div class="toolbar soft-shadow">

@@ -5,7 +5,7 @@
           <span @click="$router.go(-1)" class="icon-container angle-left">
             <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
           </span>
-        <span>Mes comptes</span>
+        <span>I miei conti</span>
         <span class="absolute-right">
             <span @click="$router.push({name: 'Accueil'})" class="icon-container">
               <img class="ui-icon" src="../assets/ui/home.png" alt="">
@@ -15,12 +15,12 @@
 
     </div>
     <div class="content-text">
-      <div class="color-em">Aujourd'hui</div>
+      <div class="color-em">Oggi</div>
       <div class="balance">
         {{ $store.state.balance }}
       </div>
       <div class="account-label">
-        Compte Courant <em>{{ $store.state.iban }}</em>
+        Conto corrente <em>{{ $store.state.iban }}</em>
       </div>
     </div>
     <div class="account-list">
@@ -29,7 +29,7 @@
           {{ $store.state.balance }}
         </div>
         <div>{{ $store.state.iban }}5</div>
-        <div>Compte Courant</div>
+        <div>Conto corrente</div>
       </div>
     </div>
     <transition name="fade">
@@ -42,36 +42,36 @@
             </span>
               <span class="hidden-menu-text">Afficher mon RIB</span>
             </li>
-            <li>
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/clock.png" alt="">
-            </span>
+            <li @click="$router.push({name: 'Error', params: {title: 'Consulter les opérations '}})">
+              <span class="icon-container">
+                <img class="ui-icon" src="../assets/ui/clock.png" alt="">
+              </span>
               <span class="hidden-menu-text">Consulter les opérations à venir</span>
             </li>
-            <li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})">
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
             </span>
               <span class="hidden-menu-text">Effectuer un virement</span>
             </li>
-            <li>
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Payer une facture</span>
-            </li>
-            <li>
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/finger.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Recharger mobile ou Jawz</span>
-            </li>
-            <li>
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Consulter le relevé de compte</span>
-            </li>
+            <!--            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">-->
+            <!--            <span class="icon-container">-->
+            <!--              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">-->
+            <!--            </span>-->
+            <!--              <span class="hidden-menu-text">Payer une facture</span>-->
+            <!--            </li>-->
+            <!--            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">-->
+            <!--            <span class="icon-container">-->
+            <!--              <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
+            <!--            </span>-->
+            <!--              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>-->
+            <!--            </li>-->
+            <!--            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">-->
+            <!--            <span class="icon-container">-->
+            <!--              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">-->
+            <!--            </span>-->
+            <!--              <span class="hidden-menu-text">Consulter le relevé de compte</span>-->
+            <!--            </li>-->
           </ul>
           <div @click="hideHiddenMenu()" class="close-button">
             <span class="icon-container round-radius orange-bg">

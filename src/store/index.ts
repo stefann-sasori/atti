@@ -21,8 +21,8 @@ export default createStore({
             shortMonth: "dic",
             day: "09",
             date: "09 dic",
-            title: "ACH ZARA09/12/22",
-            amount: "-1798,00 EUR",
+            title: "VIR /SEPA CH79 0076...",
+            amount: "-250 000 EUR",
             key: 59,
             state: false,
           },
@@ -72,8 +72,6 @@ export default createStore({
             state: false,
           },
 
-
-
           {
             shortMonth: "dic",
             day: "01",
@@ -94,7 +92,7 @@ export default createStore({
           },
           {
             shortMonth: "dic",
-            day: "0",
+            day: "01",
             date: "O1 dic",
             title: "PAY 99008923 (*)",
             amount: "-5 299,00 EUR",

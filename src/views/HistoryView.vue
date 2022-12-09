@@ -5,7 +5,7 @@
         <span @click="showHome()" class="icon-container angle-left">
           <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
         </span>
-        <span>Opérations</span>
+        <span>Operazioni</span>
         <span class="absolute-right">
           <span @click="$router.push({name: 'Error',  params: {title: 'Pdf'}})" class="icon-container">
             <img class="ui-icon" src="../assets/ui/pdf.png" alt="">
@@ -22,7 +22,7 @@
         </div>
         <div class="balance">
           {{ $store.state.balance }}
-          <div class="badge">Solde réel</div>
+          <div class="badge">Saldo effettivo</div>
           <span class="absolute-right">
             <span @click="showRib()" class="icon-container">
               <img class="ui-icon" src="../assets/ui/rib.png" alt="">
@@ -32,11 +32,11 @@
         <div class="columns">
           <div class="column">
             {{ $store.state.yesterdayBalance }}
-            <div>Solde du {{ yesterday() }}</div>
+            <div>Saldo di {{ yesterday() }}</div>
           </div>
           <div class="column last-column">
             {{ $store.state.iban }}
-            <div>Compte Courant</div>
+            <div>Conto corrente</div>
           </div>
         </div>
       </div>

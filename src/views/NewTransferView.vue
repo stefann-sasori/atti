@@ -19,7 +19,7 @@
         </div>
         <div class="balance">
           {{ $store.state.balance }}
-          <div class="badge">Solde réel</div>
+          <div class="badge">Saldo effettivo</div>
           <span class="absolute-right">
 <!--            <span @click="showRib()" class="icon-container">-->
 <!--              <img class="ui-icon" src="../assets/ui/rib.png" alt="">-->
@@ -48,25 +48,25 @@
     <div class="operation-list">
       <div style="margin-top: 2rem;" class="operation-group">
         <div class="month">
-          Informations sur le virement
+          Informazioni sul trasferimento
         </div>
         <div class="operations">
           <form @submit.prevent="save()" class="soft-shadow form">
-            <label>Bénéficiaire
+            <label>Beneficiario
               <select v-model="beneficiaryId">
                 <option :key="beneficiary._id" v-for="beneficiary in $store.state.beneficiaries" :value="beneficiary._id">
                   {{ beneficiary.nom }}
                 </option>
               </select>
             </label>
-            <label>Motif
+            <label>Motivo
               <input v-model.trim="title" type="text" required>
             </label>
             <label>Amount
-              <input v-model.trim="swift" type="number" required >
+              <input v-model.trim="Importo" type="number" required >
             </label>
             <div class="button-container">
-              <button type="submit" class="button-3">Valider</button>
+              <button type="submit" class="button-3">Convalidare</button>
             </div>
 
           </form>
@@ -129,38 +129,38 @@
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/rib.png" alt="">
             </span>
-              <span class="hidden-menu-text">Afficher mon RIB</span>
+              <span class="hidden-menu-text">Visualizza il mio RIB</span>
             </li>
-            <li @click="$router.push({name: 'Error', params: {title: 'Consulter les opérations '}})">
-              <span class="icon-container">
-                <img class="ui-icon" src="../assets/ui/clock.png" alt="">
-              </span>
-              <span class="hidden-menu-text">Consulter les opérations à venir</span>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/clock.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Visualizza le prossime operazioni</span>
             </li>
-            <li @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})">
+            <li>
             <span class="icon-container">
               <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
             </span>
-              <span class="hidden-menu-text">Effectuer un virement</span>
+              <span class="hidden-menu-text">Effettuare un trasferimento</span>
             </li>
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Payer une facture</span>-->
-<!--            </li>-->
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>-->
-<!--            </li>-->
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Consulter le relevé de compte</span>-->
-<!--            </li>-->
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Pagare una fattura</span>
+            </li>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/finger.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Ricarica il cellulare o Jawz</span>
+            </li>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Visualizzare l'estratto conto</span>
+            </li>
           </ul>
           <div @click="hideHiddenMenu()" class="close-button">
             <span class="icon-container round-radius orange-bg">
@@ -170,6 +170,7 @@
         </div>
       </div>
     </transition>
+
   </div>
 </template>
 

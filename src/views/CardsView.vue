@@ -5,7 +5,7 @@
         <span @click="showHome()" class="icon-container angle-left">
           <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
         </span>
-        <span>Cartes de débit</span>
+        <span>Carte di debito</span>
         <span class="absolute-right">
           <span  @click="$router.push({name: 'Accueil'})" class="icon-container">
             <img class="ui-icon" src="../assets/ui/home.png" alt="">
@@ -19,7 +19,7 @@
         </div>
         <div class="balance">
           {{ $store.state.balance }}
-          <div class="badge">Solde réel</div>
+          <div class="badge">Saldo effettivo</div>
           <span class="absolute-right">
 <!--            <span @click="showRib()" class="icon-container">-->
 <!--              <img class="ui-icon" src="../assets/ui/rib.png" alt="">-->
@@ -29,11 +29,11 @@
         <div class="columns">
           <div class="column">
             {{ $store.state.yesterdayBalance }}
-            <div>Solde du {{ yesterday() }}</div>
+            <div>Saldo di {{ yesterday() }}</div>
           </div>
           <div class="column last-column">
             {{ $store.state.iban }}
-            <div>Compte Courant</div>
+            <div>Conto corrente</div>
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@
     <div class="operation-list">
       <div class="operation-group">
         <div class="month">
-          Carte de debit
+          Carta di debito
         </div>
         <div class="operations">
           <div  class="operation" >
@@ -75,7 +75,7 @@
               </div>
               <div class="holder">
                 {{ $store.state.name }} - <strong class="green">08/25</strong>
-                <div class="red">Inactif</div>
+                <div class="red">Inattivo</div>
               </div>
 
             </div>
@@ -108,6 +108,55 @@
 <!--      </div>-->
 <!--    </div>-->
 
+    <transition name="fade">
+      <div v-show="hiddenMenuOpen" class="hidden-menu">
+        <div class="hidden-menu-content">
+          <ul>
+            <li  @click="showRib()">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/rib.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Visualizza il mio RIB</span>
+            </li>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/clock.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Visualizza le prossime operazioni</span>
+            </li>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Effettuare un trasferimento</span>
+            </li>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Pagare una fattura</span>
+            </li>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/finger.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Ricarica il cellulare o Jawz</span>
+            </li>
+            <li>
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Visualizzare l'estratto conto</span>
+            </li>
+          </ul>
+          <div @click="hideHiddenMenu()" class="close-button">
+            <span class="icon-container round-radius orange-bg">
+              <img class="ui-icon" src="../assets/ui/close.png" alt="">
+            </span>
+          </div>
+        </div>
+      </div>
+    </transition>
     <div class="toolbar-content">
       <div class="toolbar soft-shadow">
 
@@ -130,57 +179,6 @@
         <!--        </span>-->
       </div>
     </div>
-
-
-    <transition name="fade">
-      <div v-show="hiddenMenuOpen" class="hidden-menu">
-        <div class="hidden-menu-content">
-          <ul>
-            <li  @click="showRib()">
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/rib.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Afficher mon RIB</span>
-            </li>
-            <li @click="$router.push({name: 'Error', params: {title: 'Consulter les opérations '}})">
-              <span class="icon-container">
-                <img class="ui-icon" src="../assets/ui/clock.png" alt="">
-              </span>
-              <span class="hidden-menu-text">Consulter les opérations à venir</span>
-            </li>
-            <li @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})">
-            <span class="icon-container">
-              <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
-            </span>
-              <span class="hidden-menu-text">Effectuer un virement</span>
-            </li>
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Payer une facture</span>-->
-<!--            </li>-->
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>-->
-<!--            </li>-->
-<!--            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">-->
-<!--            <span class="icon-container">-->
-<!--              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">-->
-<!--            </span>-->
-<!--              <span class="hidden-menu-text">Consulter le relevé de compte</span>-->
-<!--            </li>-->
-          </ul>
-          <div @click="hideHiddenMenu()" class="close-button">
-            <span class="icon-container round-radius orange-bg">
-              <img class="ui-icon" src="../assets/ui/close.png" alt="">
-            </span>
-          </div>
-        </div>
-      </div>
-    </transition>
   </div>
 </template>
 

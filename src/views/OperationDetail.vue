@@ -5,7 +5,7 @@
         <span @click="$router.go(-1)" class="icon-container angle-left">
           <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
         </span>
-      <span>Détail de l'opération</span>
+      <span>Dettagli dell'operazione</span>
       <span class="absolute-right">
           <span @click="$router.push({name: 'Accueil'})" class="icon-container">
             <img class="ui-icon" src="../assets/ui/home.png" alt="">
@@ -22,7 +22,7 @@
       <div>
         {{ $store.state.name }}
       </div>
-      <div class="iban"><span>Compte courant : </span> <strong>{{ $store.state.iban }}</strong> </div>
+      <div class="iban"><span>Conto corrente : </span> <strong>{{ $store.state.iban }}</strong> </div>
     </div>
 
 
@@ -30,12 +30,12 @@
   <div>
     <div class="columns">
       <div class="column">
-        <div> <span class="icon-container"><img class="ui-icon" src="../assets/ui/calendar.png" alt=""></span>  Date de valeur </div>
+        <div> <span class="icon-container"><img class="ui-icon" src="../assets/ui/calendar.png" alt=""></span>  Data del valore </div>
          {{ getValueDate() }}
 
       </div>
       <div class="column last-column">
-        <div> <span class="icon-container"><img class="ui-icon" src="../assets/ui/calendar.png" alt=""></span>  Date d'opération </div>
+        <div> <span class="icon-container"><img class="ui-icon" src="../assets/ui/calendar.png" alt=""></span>  Data dell'operazione </div>
         {{ getFormattedOperationDate() }}
       </div>
     </div>
@@ -58,7 +58,7 @@ export default class OperationDetail extends Vue {
       return undefined;
     }
     const frenchDate = operation.day + ' ' + month.month;
-    const date = DateTime.fromFormat(frenchDate, 'dd MMMM yyyy', {locale: 'fr'});
+    const date = DateTime.fromFormat(frenchDate, 'dd MMMM yyyy', {locale: 'it'});
     console.log(date);
     return date;
   }
