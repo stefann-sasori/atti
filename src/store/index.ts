@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import axios, {AxiosResponse} from "axios";
+import {DateTime} from "luxon";
 
 export default createStore({
   state: {
@@ -7,7 +8,8 @@ export default createStore({
     balance: "1 762 000 Euros",
     iban: "MA067 01514 514100000245 69",
     name: "GABRIELA MESSINA",
-    yesterdayBalance: "1 762 000 EURO",
+    yesterdayBalance: "2 112 000 EURO",
+    currentDate: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_FULL),
     currentOperation: null,
     logged: true,
     apiKey: "638a7f5dc890f30a8fd1f6d9",

@@ -16,7 +16,10 @@
         {{ $store.state.balance }}
       </div>
       <div class="account-label">
-        Conto corrente <em>{{ $store.state.iban }}</em>
+        Conto corrente <em>{{ $store.state.iban }}</em> <br>
+      </div>
+      <div class="account-label">
+        ultima connessione: <em>{{ $store.state.currentDate }}</em> <br>
       </div>
     </div>
     <div class="account-list">
@@ -24,7 +27,7 @@
         <div class="balance">
           {{ $store.state.balance }}
         </div>
-        <div>{{ $store.state.iban }}5</div>
+        <div>{{ $store.state.iban }}</div>
         <div>Conto corrente</div>
       </div>
     </div>
