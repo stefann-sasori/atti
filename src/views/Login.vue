@@ -3,7 +3,7 @@
     <div class="login-content">
 
       <div class="logo-container">
-        <img src="../assets/images/logo-white.png" alt="">
+        <img src="../assets/images/logo-mediobanca-white.png" alt="">
       </div>
 <!--      <h1>Bienvenue sur votre banque en ligne</h1>-->
 
@@ -85,7 +85,7 @@ body {
 }
 @media (min-width: 600px) {
   .login {
-    background-color: #d82416;
+    background-color: rgb(23, 63, 114);
     height: 100vh;
     margin-top: -140px;
     margin-left: -300px;
@@ -156,7 +156,7 @@ h1{
   max-width: 100%;
   margin: auto;
   padding: 1.5rem;
-  background-color: #d82416;
+  background-color: rgb(23, 63, 114);
 }
 .input-icon {
   position: absolute;
@@ -268,7 +268,7 @@ input:focus{
 }
 .form-row button.btn {
   text-align: center;
-  color: #d82416;
+  color: rgb(23, 63, 114);
   background-color: white;
   /* font-weight: 300; */
   margin-top: 2rem;

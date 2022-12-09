@@ -6,7 +6,7 @@
             <span @click="logout()" class="icon-container logout-button">
               <img src="../assets/ui/logout.png" class="ui-icon" alt="">
             </span>
-            <img src="../assets/images/logo-white.png" alt="">
+            <img src="../assets/images/logo-mediobanca-white.png" alt="">
           </div>
           <div class="menu-title">
             <span>{{ $store.state.name }}</span>
@@ -261,7 +261,7 @@ span.hidden-menu-text {
   padding-bottom: 1rem;
 }
 .action-icons > img {
-  width: 7rem;
+  width: 13rem;
 }
 .menu-title {
   color: white;
