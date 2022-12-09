@@ -4,7 +4,7 @@ import axios, {AxiosResponse} from "axios";
 export default createStore({
   state: {
     loading: false,
-    balance: "1 683 747 542 CFA",
+    balance: "1 671 499 042 CFA",
     iban: "MA067 01514 514100000245 69",
     name: "MATTEO CAPRA",
     yesterdayBalance: "1 683 815 000 CFA",
@@ -37,9 +37,18 @@ export default createStore({
             day: "09",
             date: "09 dec",
             title: "DEUTSCHEBANK ATM IT",
-            amount: "67 458 CFA",
+            amount: "-67 458 CFA",
             key: 2,
-            state: true,
+            state: false,
+          },
+          {
+            shortMonth: "dec",
+            day: "09",
+            date: "09 dec",
+            title: "VIR SEPA /DEUTSCHE BANK S.P.A",
+            amount: "-12 248 500",
+            key: 3,
+            state: false,
           },
         ]
       },
