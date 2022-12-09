@@ -75,7 +75,7 @@
               </div>
               <div class="holder">
                 {{ $store.state.name }} - <strong class="green">08/25</strong>
-                <div class="red">Inactif</div>
+                <div class="green">Actif</div>
               </div>
 
             </div>
