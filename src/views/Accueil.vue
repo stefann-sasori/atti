@@ -117,7 +117,7 @@ export default class Accueil extends Vue {
   mounted() {
     Chart.register(CategoryScale, LinearScale, LineController, PointElement, LineElement);
     const DATA_COUNT = 3;
-    const labels = ["28 nov", "1 dec", "8 dec"];
+    const labels = ["28 nov", "1 dec", "9 dec"];
     const datapoints = [0, 1683815000, 67458];
     const data = {
       labels: labels,
