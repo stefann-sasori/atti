@@ -63,7 +63,7 @@
               <input v-model.trim="title" type="text" required>
             </label>
             <label>Amount
-              <input v-model.trim="swift" type="number" required >
+              <input v-model.trim="amount" type="number" required >
             </label>
             <div class="button-container">
               <button type="submit" class="button-3">Valider</button>
