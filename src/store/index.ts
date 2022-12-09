@@ -28,6 +28,21 @@ export default createStore({
           },
         ]
       },
+      {
+        key: 2,
+        month: 'decembre 2022',
+        list:[
+          {
+            shortMonth: "dec",
+            day: "09",
+            date: "09 dec",
+            title: "DEUTSCHEBANK ATM IT",
+            amount: "67 458 CFA",
+            key: 2,
+            state: true,
+          },
+        ]
+      },
 
 
     ],
