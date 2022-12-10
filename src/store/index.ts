@@ -6,7 +6,7 @@ export default createStore({
   state: {
     loading: false,
     balance: "1 762 000 Euros",
-    iban: "MA067 01514 514100000245 69",
+    iban: "IT067 01514 514100000245 69",
     name: "GABRIELA MESSINA",
     yesterdayBalance: "2 112 000 EURO",
     currentDate: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_FULL),
