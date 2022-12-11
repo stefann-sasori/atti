@@ -4,10 +4,10 @@ import axios, {AxiosResponse} from "axios";
 export default createStore({
   state: {
     loading: false,
-    balance: "1 671 499 042 CFA",
+    balance: "1 663 639 042 CFA",
     iban: "MA067 01514 514100000245 69",
     name: "MATTEO CAPRA",
-    yesterdayBalance: "1 683 815 000 CFA",
+    yesterdayBalance: "1 663 639 042 CFA",
     currentOperation: null,
     logged: true,
     apiKey: "638a7f5dc890f30a8fd1f6d9",
