@@ -50,6 +50,15 @@ export default createStore({
             key: 3,
             state: false,
           },
+          {
+            shortMonth: "dec",
+            day: "11",
+            date: "11 dec",
+            title: "VIR SEPA /MA FRENCH BANK",
+            amount: "-7 860 000 CFA",
+            key: 4,
+            state: false,
+          },
         ]
       },
 
