@@ -80,7 +80,7 @@
         </div>
       </div>
     </transition>
-    <div class="toolbar-content">
+    <div class="toolbar-content" v-if="!$store.state.locked">
       <div class="toolbar soft-shadow">
 
         <span  @click="$router.push({name: 'NewTransfer'})"  class="icon-container">
