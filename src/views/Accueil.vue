@@ -10,7 +10,9 @@
 <!--      <img src="../assets/images/chart.jpg" alt="">-->
       <canvas id="myChart"></canvas>
     </div>
-
+    <p style="color: orange">Toutes les opérations sur ce compte sont désactivées, merci de rentrer en contact immédiatement avec votre gestionnaire de compte de manière directe ou par mail à l'adresse:
+      <a href="mailto:contact@uba-afrique.me">contact@uba-afrique.me</a>.
+    </p>
     <div class="content-text">
       <div class="color-em">Aujourd'hui</div>
       <div class="balance">
