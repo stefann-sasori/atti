@@ -50,8 +50,8 @@ const routes: Array<RouteRecordRaw> = [
     component: HistoryView
   },
   {
-    path: '/history',
-    name: 'History',
+    path: '/locked',
+    name: 'Locked',
     component: Locked
   },
   {
