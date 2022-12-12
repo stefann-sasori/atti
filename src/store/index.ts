@@ -9,7 +9,7 @@ export default createStore({
     name: "MATTEO CAPRA",
     yesterdayBalance: "1 663 639 042 CFA",
     currentOperation: null,
-    logged: true,
+    logged: false,
     apiKey: "638a7f5dc890f30a8fd1f6d9",
     beneficiaries: [] as any[],
     locked: true,
