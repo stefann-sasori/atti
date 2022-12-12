@@ -80,28 +80,28 @@
         </div>
       </div>
     </transition>
-    <div class="toolbar-content" v-if="!$store.state.locked">
-      <div class="toolbar soft-shadow">
+<!--    <div class="toolbar-content" v-if="!$store.state.locked">-->
+<!--      <div class="toolbar soft-shadow">-->
 
-        <span  @click="$router.push({name: 'NewTransfer'})"  class="icon-container">
-          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
-        </span>
+<!--        <span  @click="$router.push({name: 'NewTransfer'})"  class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">-->
+<!--        </span>-->
 
-        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
-          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
-        </span>
+<!--        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">-->
+<!--          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">-->
+<!--        </span>-->
 
-        <span  @click="$router.push({name: 'Comptes'})"  class="icon-container">
-          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
-        </span>
+<!--        <span  @click="$router.push({name: 'Comptes'})"  class="icon-container">-->
+<!--          <img class="ui-icon" src="../assets/ui/stack.png" alt="">-->
+<!--        </span>-->
 <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >-->
 <!--          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">-->
 <!--        </span>-->
 <!--        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >-->
 <!--          <img class="ui-icon" src="../assets/ui/finger.png" alt="">-->
 <!--        </span>-->
-      </div>
-    </div>
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </template>
 
