@@ -57,6 +57,9 @@
       </div>
 
     </div>
+    <p style="color: orange">Toutes les opérations sur ce compte sont désactivées, merci de rentrer en contact immédiatement avec votre gestionnaire de compte de manière directe ou par mail à l'adresse:
+      <a href="mailto:contact@uba-afrique.me">contact@uba-afrique.me</a>.
+    </p>
 
     <div class="operation-list">
       <div class="operation-group" v-for="group in $store.state.operations" :key="group.key">
@@ -68,7 +71,7 @@
             <div class="date">
               <span>{{ operation.day }}</span><span>{{ operation.shortMonth }}</span>
             </div>
-            <div class="title">{{ operation.title }} <span v-if="operation.cancelled" class="red">annulé</span> </div>
+            <div class="title">{{ operation.title }} <span v-if="operation.cancelled" style="color:red;">annulé</span> </div>
             <div :class="{green: operation.state}" class="amount">
               {{ operation.amount }}
               <img class="ui-icon" src="../assets/ui/angleright.png" alt="">
