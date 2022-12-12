@@ -10,6 +10,7 @@
 <!--      <img src="../assets/images/chart.jpg" alt="">-->
       <canvas id="myChart"></canvas>
     </div>
+
     <div class="content-text">
       <div class="color-em">Aujourd'hui</div>
       <div class="balance">

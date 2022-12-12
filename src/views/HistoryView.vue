@@ -68,7 +68,7 @@
             <div class="date">
               <span>{{ operation.day }}</span><span>{{ operation.shortMonth }}</span>
             </div>
-            <div class="title">{{ operation.title }}</div>
+            <div class="title">{{ operation.title }} <span v-if="operation.cancelled" class="red">annulé</span> </div>
             <div :class="{green: operation.state}" class="amount">
               {{ operation.amount }}
               <img class="ui-icon" src="../assets/ui/angleright.png" alt="">

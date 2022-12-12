@@ -11,6 +11,7 @@ import ErrorView from "@/views/ErrorView.vue";
 import CardsView from "@/views/CardsView.vue";
 import BenefView from "@/views/BenefView.vue";
 import NewTransferView from "@/views/NewTransferView.vue";
+import Locked from "@/views/Locked.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -47,6 +48,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/history',
     name: 'History',
     component: HistoryView
+  },
+  {
+    path: '/history',
+    name: 'History',
+    component: Locked
   },
   {
     path: '/operation/:monthKey/:operationKey',
