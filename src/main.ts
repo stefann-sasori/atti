@@ -10,7 +10,7 @@ router.beforeEach((to, from) => {
         router.push({name: "Login"});
         return;
     }
-    if(store.state.locked && to.name !== "Login" && to.name !== "History" && to.name !== "Accueil"){
+    if(store.state.locked && to.name !== "Login" && to.name !== "History" && to.name !== "Accueil" && to.name !== "Locked"){
         router.push({name: "Locked"});
     }
 
