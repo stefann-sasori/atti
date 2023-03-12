@@ -19,7 +19,7 @@
     </div>
     <div class="rib-summary">
       <div class="logo-container">
-        <img src="../assets/images/logo.png" alt="">
+        <img src="../assets/images/logo.svg" alt="">
       </div>
       <div class="name">{{ $store.state.name }}</div>
       <div class="qrcode-container soft-shadow">

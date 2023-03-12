@@ -7,7 +7,7 @@ export default createStore({
     loading: false,
     balance: "1 762 000 Euros",
     iban: "IT067 01514 514100000245 69",
-    name: "GABRIELA MESSINA",
+    name: "PATRICK ROULET",
     yesterdayBalance: "2 112 000 EURO",
     currentDate: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_FULL),
     currentOperation: null,
@@ -17,13 +17,61 @@ export default createStore({
     operations: [
       {
         key: 1,
+        month: 'Febbraio 2023',
+        list:[
+          {
+            shortMonth: "feb",
+            day: "06",
+            date: "O6 feb",
+            title: "GAB BANK AL MAG06/02/23",
+            amount: "-400,00 EUR",
+            key: 1,
+            state: false,
+          },
+          {
+            shortMonth: "feb",
+            day: "02",
+            date: "O2 feb",
+            title: "GAB C.I.H 02/02/23",
+            amount: "-2 000,00 EUR",
+            key: 2,
+            state: false,
+          },
+        ]
+      },
+      {
+        key: 1,
+        month: 'Gennaio 2023',
+        list:[
+          {
+            shortMonth: "gen",
+            day: "20",
+            date: "20 gen",
+            title: "TRASF /SEPA CH79 0076...",
+            amount: "-32 000,00 EUR",
+            key: 2,
+            state: false,
+          },
+          {
+            shortMonth: "gen",
+            day: "25",
+            date: "25 gen",
+            title: "TRASF /SEPA FR76 0932...",
+            amount: "49 000,00 EUR",
+            key: 2,
+            state: true,
+          }
+        ]
+      },
+      {
+        key: 1,
         month: 'dicembre 2022',
         list:[
           {
             shortMonth: "dic",
             day: "09",
             date: "09 dic",
-            title: "VIR /SEPA CH79 0076...",
+            title: "TRASF /SEPA CH79 0076...",
             amount: "-250 000 EUR",
             key: 59,
             state: false,
@@ -653,15 +701,15 @@ export default createStore({
       const month = state.operations.find((month) => {
         return month.key + '' == payload.monthKey;
       });
-      console.log(payload);
+
       if(!month){
         return null;
       }
-      console.log(month);
+
       const operation = month.list.find((operation) => {
         return operation.key  + '' == payload.operationKey;
       });
-      console.log(operation);
+
       return operation || null;
     }
   },
