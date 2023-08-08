@@ -1,91 +1,91 @@
 <template>
   <div class="history">
-    <div class="half-top">
-      <div class="head">
+<!--    <div class="half-top">-->
+<!--      -->
+<!--    </div>-->
+    <div class="head">
         <span @click="showHome()" class="icon-container angle-left">
           <img class="ui-icon" src="../assets/images/hamburger.png" alt="">
         </span>
-<!--        <span>Opérations</span>-->
-        <span class="absolute-right">
+      <!--        <span>Opérations</span>-->
+      <span class="absolute-right">
 <!--          <span @click="$router.push({name: 'Error',  params: {title: 'Pdf'}})" class="icon-container">-->
-<!--            <img class="ui-icon" src="../assets/ui/pdf.png" alt="">-->
-<!--          </span>-->
+        <!--            <img class="ui-icon" src="../assets/ui/pdf.png" alt="">-->
+        <!--          </span>-->
           <span  @click="$router.push({name: 'Accueil'})" class="">
             <img class="logo-icon" src="../assets/images/logo.png" alt="">
           </span>
         </span>
-
+    </div>
+    <div class="summary box">
+      <div style="display: flex; justify-content: center; align-items: center; height: 96px">
+        <img style="width: 72px;" src="../assets/images/icon-bank.png" alt="">
       </div>
-      <div class="summary box">
-        <div style="display: flex; justify-content: center; align-items: center; height: 96px">
-          <img style="width: 72px;" src="../assets/images/icon-bank.png" alt="">
+      <div class="balance">
+        {{ $store.state.balance }}
+        <div class="badge">Solde total</div>
+      </div>
+      <hr style="margin-left: -1rem;width: calc(100% + 2rem); background-color: #ddd">
+      <div class="columns">
+        <div class="column">
+          Effectuer un virement
         </div>
-        <div class="balance">
-          {{ $store.state.balance }}
-          <div class="badge">Solde total</div>
-        </div>
-        <hr style="margin-left: -1rem;width: calc(100% + 2rem); background-color: #ddd">
-        <div class="columns">
-          <div class="column">
-            Effectuer un virement
-          </div>
-          <div class="column last-column">
-            Créditer
-          </div>
+        <div class="column last-column">
+          Créditer
         </div>
       </div>
+    </div>
 
-      <div style="padding: 1rem 1.5rem; margin-top: 1.5rem; color: #555" class="summary box">
-        <h2>Votre RIB ibanico</h2>
-        <p style="font-weight: 600">
-          Bénéficiaire du compte :  {{ $store.state.name }} <br>
-          IBAN :  {{ $store.state.iban }} <br>
-          BIC :  PRNSFRP1 <br>
-          <span class="color-em">Télécharger mon rib</span>
-        </p>
-        <div style="display: flex; justify-content: center; align-items: center; margin-top: 3rem; margin-bottom: .5rem">
-          <button style="width: 100%" class="btn">Commander ma carte IBANICO</button>
-        </div>
-
+    <div style="padding: 1rem 1.5rem; margin-top: 1.5rem; color: #555" class="summary box">
+      <h2>Votre RIB ibanico</h2>
+      <p style="font-weight: 600">
+        Bénéficiaire du compte :  {{ $store.state.name }} <br>
+        IBAN :  {{ $store.state.iban }} <br>
+        BIC :  PRNSFRP1 <br>
+        <span class="color-em">Télécharger mon rib</span>
+      </p>
+      <div style="display: flex; justify-content: center; align-items: center; margin-top: 3rem; margin-bottom: .5rem">
+        <button style="width: 100%" class="btn">Commander ma carte IBANICO</button>
       </div>
 
-      <div style="padding: 1rem 0; margin-top: 1.5rem; color: #555; margin-bottom: 2rem" class="summary box">
-        <h2 style="padding: 0 1.5rem">Opérations récentes</h2>
-        <div style="display: flex; font-weight: 600; margin-top: 2rem">
-          <div style="border-bottom: solid 3px rgb(39,170,70); padding-bottom: 1rem">Compte principal</div>
-        </div>
-        <table v-for="group in $store.state.operations" :key="group.key">
-          <thead>
-          <tr>
-            <th>
-              Date
-            </th>
-            <th>
-              Description
-            </th>
-            <th style="text-align: center">
-              Montant
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="operation in group.list" :key="operation.key">
-            <td>
-              <div class="date">
-                <span>{{ operation.day }}</span><br><span class="date-month">{{ operation.shortMonth }}</span>
-              </div>
-            </td>
-            <td>
-              <div class="title">{{ operation.title }} <span v-if="operation.state">entrant</span><span v-else>sortant</span> </div>
-            </td>
-            <td style="width:7rem">
-              <div class="title">{{ operation.amount }}</div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+    </div>
 
+    <div style="padding: 1rem 0; margin-top: 1.5rem; color: #555; margin-bottom: 2rem" class="summary box">
+      <h2 style="padding: 0 1.5rem">Opérations récentes</h2>
+      <div style="display: flex; font-weight: 600; margin-top: 2rem">
+        <div style="border-bottom: solid 3px rgb(39,170,70); padding-bottom: 1rem">Compte principal</div>
       </div>
+      <table v-for="group in $store.state.operations" :key="group.key">
+        <thead>
+        <tr>
+          <th>
+            Date
+          </th>
+          <th>
+            Description
+          </th>
+          <th style="text-align: center">
+            Montant
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="operation in group.list" :key="operation.key">
+          <td>
+            <div class="date">
+              <span>{{ operation.day }}</span><br><span class="date-month">{{ operation.shortMonth }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="title">{{ operation.title }} <span v-if="operation.state">entrant</span><span v-else>sortant</span> </div>
+          </td>
+          <td style="width:7rem">
+            <div class="title">{{ operation.amount }}</div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
     </div>
 
   </div>
