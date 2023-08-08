@@ -50,6 +50,12 @@ import { Options, Vue } from 'vue-class-component';
 export default class Login extends Vue {
   public uuid = '';
   public password = '';
+  mounted(){
+    store.commit('showLoader');
+    setTimeout(() => {
+      store.commit('hideLoader');
+    }, 3000)
+  }
   public connect(){
     store.commit('showLoader');
     setTimeout(() => {
