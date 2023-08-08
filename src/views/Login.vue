@@ -117,10 +117,6 @@ body {
   visibility: hidden;
   box-shadow: 0 5px 28.5px 1.5px rgba(149,152,200,.2);
 }
-
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  font-family: raleway,sans-serif;
-}
 body {
   align-items: center;
   min-height: 100vh;
@@ -136,12 +132,16 @@ body {
   margin-left: auto;
   overflow-x: hidden;
   margin: 0;
-  font-family: "Open Sans", "Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;
+  font-family: roboto,sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.35;
   color: #000000;
   text-align: left;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: raleway,sans-serif;
 }
 
 body, html{
