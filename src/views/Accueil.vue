@@ -112,6 +112,12 @@ export default class Accueil extends Vue {
   showHiddenMenu(){
     this.hiddenMenuOpen = true;
   }
+  mounted(){
+    store.commit('showLoader');
+    setTimeout(() => {
+      store.commit('hideLoader');
+    }, 3000)
+  }
   hideHiddenMenu(){
     this.hiddenMenuOpen = false;
   }
