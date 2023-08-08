@@ -3,91 +3,154 @@
     <div class="half-top">
       <div class="head">
         <span @click="showHome()" class="icon-container angle-left">
-          <img class="ui-icon" src="../assets/images/hamburger.png" alt="">
+          <img class="ui-icon" src="../assets/ui/angleleft.png" alt="">
         </span>
-<!--        <span>Opérations</span>-->
+        <span>Opérations</span>
         <span class="absolute-right">
-<!--          <span @click="$router.push({name: 'Error',  params: {title: 'Pdf'}})" class="icon-container">-->
-<!--            <img class="ui-icon" src="../assets/ui/pdf.png" alt="">-->
-<!--          </span>-->
-          <span  @click="$router.push({name: 'Accueil'})" class="">
-            <img class="logo-icon" src="../assets/images/logo.png" alt="">
+          <span @click="$router.push({name: 'Error',  params: {title: 'Pdf'}})" class="icon-container">
+            <img class="ui-icon" src="../assets/ui/pdf.png" alt="">
+          </span>
+          <span  @click="$router.push({name: 'Accueil'})" class="icon-container">
+            <img class="ui-icon" src="../assets/ui/home.png" alt="">
           </span>
         </span>
 
       </div>
-      <div class="summary box">
-        <div style="display: flex; justify-content: center; align-items: center; height: 96px">
-          <img style="width: 72px;" src="../assets/images/icon-bank.png" alt="">
+      <div class="summary">
+        <div>
+          {{ $store.state.name }}
         </div>
         <div class="balance">
           {{ $store.state.balance }}
-          <div class="badge">Solde total</div>
+          <div class="badge">Solde réel</div>
+          <span class="absolute-right">
+            <span @click="showRib()" class="icon-container">
+              <img class="ui-icon" src="../assets/ui/rib.png" alt="">
+            </span>
+          </span>
         </div>
-        <hr style="margin-left: -1rem;width: calc(100% + 2rem); background-color: #ddd">
         <div class="columns">
           <div class="column">
-            Effectuer un virement
+            {{ $store.state.yesterdayBalance }}
+            <div>Solde du {{ yesterday() }}</div>
           </div>
           <div class="column last-column">
-            Créditer
+            {{ $store.state.iban }}
+            <div>Compte Courant</div>
           </div>
         </div>
       </div>
 
-      <div style="padding: 1rem 1.5rem; margin-top: 1.5rem; color: #555" class="summary box">
-        <h2>Votre RIB ibanico</h2>
-        <p style="font-weight: 600">
-          Bénéficiaire du compte :  {{ $store.state.name }} <br>
-          IBAN :  {{ $store.state.iban }} <br>
-          BIC :  PRNSFRP1 <br>
-          <span class="color-em">Télécharger mon rib</span>
-        </p>
-        <div style="display: flex; justify-content: center; align-items: center; margin-top: 3rem; margin-bottom: .5rem">
-          <button style="width: 100%" class="btn">Commander ma carte IBANICO</button>
-        </div>
 
+    </div>
+
+    <div class="operation-options">
+      <div class="form-row">
+        <img src="../assets/ui/search.png" alt="" class="ui-icon input-icon">
+        <input type="text" class="soft-shadow" placeholder="Chercher...">
+        <span class="icon-container">
+          <img class="ui-icon" src="../assets/ui/stack2.png" alt="">
+        </span>
+        <span class="icon-container">
+          <img class="ui-icon" src="../assets/ui/calendar.png" alt="">
+        </span>
       </div>
 
-      <div style="padding: 1rem 0; margin-top: 1.5rem; color: #555; margin-bottom: 2rem" class="summary box">
-        <h2 style="padding: 0 1.5rem">Opérations récentes</h2>
-        <div style="display: flex; font-weight: 600; margin-top: 2rem">
-          <div style="border-bottom: solid 3px rgb(39,170,70); padding-bottom: 1rem">Compte principal</div>
-        </div>
-        <table v-for="group in $store.state.operations" :key="group.key">
-          <thead>
-          <tr>
-            <th>
-              Date
-            </th>
-            <th>
-              Description
-            </th>
-            <th style="text-align: center">
-              Montant
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="operation in group.list" :key="operation.key">
-            <td>
-              <div class="date">
-                <span>{{ operation.day }}</span><br><span class="date-month">{{ operation.shortMonth }}</span>
-              </div>
-            </td>
-            <td>
-              <div class="title">{{ operation.title }} <span v-if="operation.state">entrant</span><span v-else>sortant</span> </div>
-            </td>
-            <td style="width:7rem">
-              <div class="title">{{ operation.amount }}</div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+    </div>
 
+    <div class="operation-list">
+      <div class="operation-group" v-for="group in $store.state.operations" :key="group.key">
+        <div class="month">
+          {{ group.month }}
+        </div>
+        <div class="operations">
+          <div @click="showDetail(group.key, operation.key)" class="operation" v-for="operation in group.list" :key="operation.key">
+            <div class="date">
+              <span>{{ operation.day }}</span><span>{{ operation.shortMonth }}</span>
+            </div>
+            <div class="title">{{ operation.title }}</div>
+            <div :class="{green: operation.state}" class="amount">
+              {{ operation.amount }}
+              <img class="ui-icon" src="../assets/ui/angleright.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar-content">
+      <div @click="showHiddenMenu()" class="orange-bg soft-shadow i-want">
+        Je voudrais...
+      </div>
+      <div class="toolbar soft-shadow">
+        <span  @click="$router.push({name: 'Error', params: {title: 'Mes Comptes'}})"  class="icon-container">
+          <img class="ui-icon" src="../assets/ui/stack.png" alt="">
+        </span>
+        <span  @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})"  class="icon-container">
+          <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+        </span>
+
+        <span @click="$store.commit('displayMenu')" class="icon-container round-radius orange-bg">
+          <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
+        </span>
+        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Paiement de factures'}})" >
+          <img class="ui-icon " src="../assets/ui/sheet.png" alt="">
+        </span>
+        <span class="icon-container"  @click="$router.push({name: 'Error', params: {title: 'Recharges prépayées'}})" >
+          <img class="ui-icon" src="../assets/ui/finger.png" alt="">
+        </span>
       </div>
     </div>
 
+
+    <transition name="fade">
+      <div v-show="hiddenMenuOpen" class="hidden-menu">
+        <div class="hidden-menu-content">
+          <ul>
+            <li  @click="showRib()">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/rib.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Afficher mon RIB</span>
+            </li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Consulter les opérations '}})">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/clock.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Consulter les opérations à venir</span>
+            </li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Effectuer un virement'}})">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/arrows.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Effectuer un virement</span>
+            </li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Payer une facture'}})">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/sheet.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Payer une facture</span>
+            </li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Recharger mobile ou Jawaz'}})">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/finger.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Recharger mobile ou Jawaz</span>
+            </li>
+            <li @click="$router.push({name: 'Error', params: {title: 'Consulter le relevé de compte '}})">
+            <span class="icon-container">
+              <img class="ui-icon" src="../assets/ui/sheets.png" alt="">
+            </span>
+              <span class="hidden-menu-text">Consulter le relevé de compte</span>
+            </li>
+          </ul>
+          <div @click="hideHiddenMenu()" class="close-button">
+            <span class="icon-container round-radius orange-bg">
+              <img class="ui-icon" src="../assets/ui/close.png" alt="">
+            </span>
+          </div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -134,47 +197,6 @@ export default class HistoryView extends Vue {
 }
 </script>
 <style scoped>
-.btn{
-  background-color: rgb(39,170,70);
-  font-weight: 700;
-  border: none;
-  padding: 14.5px 30px;
-  font-size: 1rem;
-  line-height: initial;
-  border-radius: 4px;
-  -webkit-transition: .5s;
-  transition: .5s;
-  position: relative;
-  z-index: 1;
-  color: white;
-}
-table{
-  border-collapse: collapse;
-}
-thead, th {
-  background-color: #f5f7f9;
-  font-weight: 600;
-}
-thead{
-  border-top: solid 2px rgba(175, 177, 179, 0.3);
-}
-th{
-  padding: .5rem;
-}
-@keyframes shadow {
-  50% {
-    -webkit-transform: scale(1.2,1);
-    transform: scale(1.2,1)
-  }
-}
-.box{
-  background-color: white;
-  background-color: white;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  border-radius: 0.3rem;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-}
 .history{
   background-color: #f9f9fb;
   min-height: 100vh;
@@ -279,26 +301,15 @@ span.hidden-menu-text {
   font-size: .75rem;
 }
 .date {
-  /* background-color: #eee; */
+  background-color: #eee;
+  padding: .5rem .5rem;
   text-align: center;
   width: 1.5rem;
-  text-transform: uppercase;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 1rem;
 }
 .date span {
   display: block;
   line-height: 1;
-  font-size: 1rem;
-}
-.date span.date-month{
   font-size: .8rem;
-}
-.title{
-  font-size: 1.1rem;
-  font-weight: 600;
 }
 .amount {
   font-weight: 600;
@@ -343,12 +354,13 @@ span.hidden-menu-text {
   display: flex;
   margin: 1rem 0;
   font-weight: 600;
-  justify-content: space-between;
-  margin-bottom: 0;
 }
-
+.column.last-column {
+  border-left: solid 1px #ccc;
+  padding-left: 2rem;
+}
 .columns .column {
-  color: rgb(39,170,70);
+  /*width: 50%;*/
 }
 .form-row input {
   border-radius: 1rem;
@@ -359,20 +371,22 @@ span.hidden-menu-text {
   flex: 1;
   margin-right: .5rem;
 }
-
+.column:not(.last-column){
+  padding-right: 2rem;
+}
 .columns .column div {
   font-weight: normal;
   font-size: .7rem;
   color: #777;
 }
 .balance .badge {
-  font-size: .9rem;
-  /* background-color: #eee; */
-  /* width: 4rem; */
-  /* text-align: center; */
-  color: #9e9d9d;
-  /* border-radius: 2rem; */
-  padding: 0.75rem;
+  font-size: .7rem;
+  background-color: #eee;
+  width: 4rem;
+  text-align: center;
+  color: #555;
+  border-radius: 2rem;
+  padding: .25rem;
   line-height: 1;
 }
 .head {
@@ -382,18 +396,17 @@ span.hidden-menu-text {
   align-items: center;
   padding: 0 1rem;
   box-sizing: border-box;
-  background-color: white;
 }
 .angle-left img.ui-icon {
   height: 24px;
-  width: 24px;
+  width: 16px;
 }
 span.icon-container.angle-left {
   justify-content: start;
 }
-/*.half-top {*/
-/*  background-color: white;*/
-/*}*/
+.half-top {
+  background-color: white;
+}
 span.absolute-right {
   display: flex;
 }
@@ -445,11 +458,9 @@ span.absolute-right {
 
 }
 .account .balance, .summary .balance {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin: 0;
-  color: black;
-  font-weight: 600;
-  text-align: center;
+  color: #5ab237;
 }
 .chart-container {
   width: 100vw;
@@ -521,13 +532,10 @@ img.bg.bg-desktop {
   /* left: 0; */
 }
 a, .color-em{
-  color: rgb(39,170,70);
+  color: #ed7f5c;
 }
 a{
   text-decoration: none;
-}
-.logo-icon{
-  width: 76px;
 }
 .logo-container {
   text-align: center;
@@ -598,9 +606,9 @@ h2 {
   font-weight: 600;
   font-size: 1.3rem;
   line-height: 2rem;
-  /*color: #1da35f;*/
+  color: #1da35f;
   margin: 0;
-  /*font-family: "Source Sans Pro Semibold","Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;*/
+  font-family: "Source Sans Pro Semibold","Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;
 }
 .ui-icon {
   height: 24px;

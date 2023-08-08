@@ -1,55 +1,41 @@
 <template>
   <div class="login">
     <div class="login-content">
-      <div class="flex justify-content-between">
-        <span class="round-radius white-bg soft-shadow icon-container">
-          <img class="ui-icon  left" src="../assets/ui/switch.png" alt="">
-        </span>
-        <span class="round-radius grey-bg  icon-container">
-          <img class="ui-icon  right" src="../assets/ui/call-center.png" alt="">
-        </span>
+<!--      <div class="flex justify-content-between">-->
+<!--        <span class="round-radius white-bg soft-shadow icon-container">-->
+<!--          <img class="ui-icon  left" src="../assets/ui/switch.png" alt="">-->
+<!--        </span>-->
+<!--        <span class="round-radius grey-bg  icon-container">-->
+<!--          <img class="ui-icon  right" src="../assets/ui/call-center.png" alt="">-->
+<!--        </span>-->
 
-      </div>
+<!--      </div>-->
       <div class="logo-container">
-        <img src="../assets/images/logoati.png" alt="">
+        <img src="../assets/images/logo.png" alt="">
       </div>
-<!--      <h1>Bienvenue sur votre banque en ligne</h1>-->
+      <h3>Bienvenue</h3>
+      <p class="subtitle-login" style="color: #6084a4; font-size: 13px; font-weight: 200; margin-bottom: 30px">Nouveau sur IBANICO ? <span style="color: black">Ouvrez un compte</span></p>
 
 
         <div class="form-row">
-          <img src="../assets/ui/user.png" class="ui-icon input-icon">
-          <input v-model.trim="uuid"  placeholder="Nom d'utilisateur" type="text" name="uuid" id="inputUuid" class="form-control" required
+          <input v-model.trim="uuid"  placeholder="Votre adresse email" type="text" name="uuid" id="inputUuid" class="form-control" required
                  autofocus>
         </div>
         <div class="form-row">
-          <img src="../assets/ui/pass.png" class="ui-icon input-icon">
-          <input v-model.trim="password" placeholder="Mot de passe"  type="password" name="password" id="inputPassword" class="form-control" required>
-        </div>
-        <div class="form-row flex justify-content-left align-items-center">
-          <img class="ui-icon" src="../assets/ui/ticker.png" alt="">  <span style="margin-left: 1rem">Se souvenir de moi</span>
-        </div>
-
-        <div class="form-row flex justify-content-between align-items-center">
-          <a class="color-em" href="#">Mot de passe oublié</a>
-          <a class="color-em" href="#">Identifiant oublié</a>
-        </div>
-        <div class="form-row">
-          <hr>
+          <input v-model.trim="password" placeholder="Votre mot de passe"  type="password" name="password" id="inputPassword" class="form-control" required>
         </div>
 
         <div class="form-row">
-          <button @click="connect()" class="btn" type="submit"> Connexion</button>
+          <button @click="connect()" class="btn" type="submit">SE CONNECTER</button>
         </div>
-
-
-
-    </div>
-    <div class="bottom-fix-menu">
-      <div class="icon-container round-radius orange-bg">
-        <img class="ui-icon" src="../assets/ui/bottom-menu.png" alt="">
+      <div class="form-row flex" style="align-items: end; justify-content: end">
+        <a class="color-em" style="text-decoration: underline" href="#">Mot de passe oublié</a>
       </div>
-
     </div>
+    <div>
+      <img style="max-width: 100%" src="../assets/images/login-bg.jpg" alt="">
+    </div>
+
   </div>
 </template>
 
@@ -67,9 +53,10 @@ export default class Login extends Vue {
   public connect(){
     store.commit('showLoader');
     setTimeout(() => {
-      if(this.uuid === "Uy53128927" && this.password === "Jasper2112"){
+      if(this.uuid === "laurencevissant@gmail.com" && this.password === "An09132265@"){
         this.$router.push('accueil');
       }
+
       store.commit('hideLoader');
     }, 1000);
 
@@ -77,6 +64,63 @@ export default class Login extends Vue {
 }
 </script>
 <style scoped>
+@import "https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap";
+@import "https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap";
+body {
+  padding: 0;
+  font-family: roboto,sans-serif;
+  font-size: 15px
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: -webkit-gradient(linear,left top,right top,from(#ee0979),to(#ff6a00));
+  background: linear-gradient(90deg,#ee0979 0%,#ff6a00 100%);
+  border-radius: 4px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+.btn{
+  background-color: transparent;
+  font-weight: 700;
+  border: none;
+  padding: 14.5px 30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: initial;
+  border-radius: 4px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  position: relative;
+  z-index: 1;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg,#23bdb8 0%,#43e794 100%);
+  border-radius: 4px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 5px 28.5px 1.5px rgba(149,152,200,.2);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: raleway,sans-serif;
+}
 body {
   align-items: center;
   min-height: 100vh;
@@ -110,7 +154,13 @@ img.bg.bg-desktop {
   /* left: 0; */
 }
 a, .color-em{
-  color: #ed7f5c;
+  color: #ee0979;
+}
+h3{
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 a{
   text-decoration: none;
@@ -120,9 +170,9 @@ a{
   padding: 0;
 }
 .logo-container img {
-  width: 250px;
+  width: 150px;
   height: auto;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   margin-top: 30px;
 
 }
@@ -216,7 +266,7 @@ label {
 }
 
 .login{
-  background-image: url(/img/ajb.png);
+  /*background-image: url(/img/ajb.png);*/
   background-size: 60rem;
 
 }
@@ -231,19 +281,20 @@ label {
 }
 input {
   width: 100%;
-  border-radius: .4rem;
   padding: .5rem;
-  padding-left: 2.5rem;
+  padding-left: 1rem;
   border: none;
+  height: 50px;
   /* margin-top: 1rem; */
   letter-spacing: .5px;
-  font-size: 1rem;
-  color: #666;
+  font-size: 14px;
+  font-family: raleway, sans-serif;
+  color: rgb(14, 49, 76);
   box-sizing: border-box;
   outline: none;
   -webkit-appearance: none;
-  -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow:  0 5px 28.5px 1.5px rgba(149, 152, 200, 0.2);
+  box-shadow:  0 5px 28.5px 1.5px rgba(149, 152, 200, 0.2);
 }
 input:focus{
   border-color: transparent !important;
@@ -278,22 +329,18 @@ input:focus{
   background-color: #efefef;
 }
 .form-row button.btn {
-  text-align: center;
-  background-color: #ed7f5c;
-  color: white;
-  /* font-weight: 300; */
-  margin-top: 2rem;
-  padding: .5rem;
-  display: flex;
-  font-size: 1rem;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  border-radius: 6rem;
-  justify-content: center;
-  border: 2px solid transparent;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-weight: 700;
+  border: none;
+  padding: 14px 30px;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: initial;
+  border-radius: 4px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  position: relative;
+  z-index: 1;
+  color: white  !important;
 }
 .form-row button.btn:hover{
   background: transparent;
@@ -330,7 +377,7 @@ input:focus{
     box-sizing: border-box;
     max-width: 100%;
     box-shadow: none;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     padding: 1.5rem;
   }
   .keyboard-container button{

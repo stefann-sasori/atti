@@ -2,7 +2,7 @@
 module.exports = {
     // ...other vue-cli plugin options...
     pwa: {
-        name: 'Entreprise',
+        name: 'Ibanico',
         themeColor: '#fff',
         msTileColor: '#fff',
         appleMobileWebAppCapable: 'yes',

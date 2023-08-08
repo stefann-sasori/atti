@@ -4,8 +4,11 @@
   </transition>
   <transition name="fade">
     <div v-show="$store.state.loading" id="main-green-preloader">
-      <div class="preloader-container">
-        <img src="img/1487.gif" alt="">
+      <div class="preloader" style="">
+        <div class="loader">
+          <div class="shadow"></div>
+          <div class="box"></div>
+        </div>
       </div>
     </div>
   </transition>
@@ -45,6 +48,46 @@ export default class App extends Vue {
     transform: rotate(360deg);
   }
 }
+@keyframes animate {
+  17% {
+    border-bottom-right-radius: 3px
+  }
+
+  25% {
+    -webkit-transform: translateY(9px) rotate(22.5deg);
+    transform: translateY(9px) rotate(22.5deg)
+  }
+
+  50% {
+    -webkit-transform: translateY(18px) scale(1,.9) rotate(45deg);
+    transform: translateY(18px) scale(1,.9) rotate(45deg);
+    border-bottom-right-radius: 40px
+  }
+
+  75% {
+    -webkit-transform: translateY(9px) rotate(67.5deg);
+    transform: translateY(9px) rotate(67.5deg)
+  }
+
+  100% {
+    -webkit-transform: translateY(0) rotate(90deg);
+    transform: translateY(0) rotate(90deg)
+  }
+}
+
+@-webkit-keyframes shadow {
+  50% {
+    -webkit-transform: scale(1.2,1);
+    transform: scale(1.2,1)
+  }
+}
+
+@keyframes shadow {
+  50% {
+    -webkit-transform: scale(1.2,1);
+    transform: scale(1.2,1)
+  }
+}
 body {
   touch-action: none;
   margin: 0;
@@ -73,16 +116,53 @@ body {
   width: 64px;
   height: 64px;
 }
-#main-green-preloader {
+.preloader {
   position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 100%;
-  z-index: 9999999;
-  transition: all .3s ease;
-  overflow: hidden;
+  z-index: 99999;
+  background: -webkit-gradient(linear,left top,right top,from(#ee0979),to(#ff6a00));
+  background: linear-gradient(90deg,#ee0979 0%,#ff6a00 100%);
+  top: 0;
+  left: 0;
+}
+.preloader .loader {
+  position: absolute;
+  top: 43%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-43%);
+  transform: translateY(-43%);
+  text-align: center;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+}
+.preloader .shadow {
+  width: 100%;
+  height: 5px;
+  background: #000;
+  opacity: .1;
+  position: absolute;
+  top: 59px;
+  left: 0;
+  border-radius: 50%;
+  -webkit-animation: shadow .5s linear infinite;
+  animation: shadow .5s linear infinite;
+}
+.shadow {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.preloader .box {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  -webkit-animation: animate .5s linear infinite;
+  animation: animate .5s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
 }
 //.preloader-content {
 //  position: absolute;

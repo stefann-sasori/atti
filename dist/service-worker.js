@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.776602b809c051dc568d77ae83ff9027.js"
+  "/precache-manifest.4526ce501d1d2b3c331561de5288daa9.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "attijari"});
+workbox.core.setCacheNameDetails({prefix: "Ibanico"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
