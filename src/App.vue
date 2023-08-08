@@ -33,7 +33,6 @@ export default class App extends Vue {
 
 <style lang="less">
 #app {
-  font-family: "Open Sans", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -89,7 +88,6 @@ export default class App extends Vue {
   }
 }
 body {
-  touch-action: none;
   margin: 0;
 }
 .fade-enter-active, .fade-leave-active {

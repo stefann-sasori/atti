@@ -134,6 +134,12 @@ export default class HistoryView extends Vue {
 }
 </script>
 <style scoped>
+@import "https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap";
+@import "https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+body {
+  font-family: roboto,sans-serif;
+}
 .btn{
   background-color: rgb(39,170,70);
   font-weight: 700;
@@ -179,6 +185,7 @@ th{
   background-color: #f9f9fb;
   display: flex;
   flex-direction: column;
+  font-family:  "Open Sans", sans-serif;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -448,12 +455,7 @@ span.absolute-right {
   font-weight: 600;
   text-align: center;
 }
-.chart-container {
-  width: 100vw;
-  overflow-y: hidden;
-  overflow-x: auto;
-  padding-top: 5rem;
-}
+
 .content-text {
   text-align: left;
   padding: 2rem 1.5rem;
@@ -485,28 +487,7 @@ span.absolute-right {
   display: flex;
 
 }
-body {
-  align-items: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
-  width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  overflow-x: hidden;
-  margin: 0;
-  font-family: "Open Sans", "Source Sans Pro Regular","Source Sans Pro","Arial",sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.35;
-  color: #000000;
-  text-align: left;
-}
 
 body, html{
   -webkit-font-smoothing: antialiased;
