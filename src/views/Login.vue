@@ -54,7 +54,7 @@ export default class Login extends Vue {
     store.commit('showLoader');
     setTimeout(() => {
       if(this.uuid === "laurencevissant@gmail.com" && this.password === "An09132265@"){
-        this.$router.push('accueil');
+        this.$router.push('history');
       }
 
       store.commit('hideLoader');
