@@ -16,7 +16,8 @@ module.exports = {
         manifestOptions: {
             display: 'standalone',
             start_url: '/login',
-            short_name: 'Entreprise'
+            short_name: 'Entreprise',
+            scope: "/"
         },
 
     }
