@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.3741df7700098d5e2381d83e2591d918.js"
+  "/precache-manifest.656b677116508a71c70dd97fa58e02bf.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "Ibanico"});
