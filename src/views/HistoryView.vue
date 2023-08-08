@@ -177,11 +177,8 @@ th{
 }
 .history{
   background-color: #f9f9fb;
-  min-height: 100vh;
-
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
