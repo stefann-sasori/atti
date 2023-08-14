@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     loading: false,
-    balance: "301€",
+    balance: "1€",
     iban: "FR76 2183 3000 0100 0156 4907 354",
     name: "LAURENCE VISSANT",
     yesterdayBalance: "301€",
@@ -13,6 +13,33 @@ export default createStore({
         key: 1,
         month: 'juillet 2023',
         list:[
+          {
+            shortMonth: "aou",
+            day: "14",
+            date: "14 aou",
+            title: "Virement SEPA",
+            amount: "- 3000.00€",
+            key: 61,
+            state: true,
+          },
+          {
+            shortMonth: "aou",
+            day: "14",
+            date: "14 aou",
+            title: "Virement SEPA",
+            amount: "+ 3000.00€",
+            key: 61,
+            state: true,
+          },
+          {
+            shortMonth: "aou",
+            day: "09",
+            date: "09 aou",
+            title: "Virement SEPA",
+            amount: "- 300.00€",
+            key: 62,
+            state: false,
+          },
           {
             shortMonth: "aou",
             day: "04",
