@@ -20,7 +20,7 @@ export default createStore({
             title: "Virement SEPA",
             amount: "- 3000.00€",
             key: 61,
-            state: true,
+            state: false,
           },
           {
             shortMonth: "aou",
