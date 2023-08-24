@@ -15,6 +15,24 @@ export default createStore({
         list:[
           {
             shortMonth: "aou",
+            day: "17",
+            date: "17 aou",
+            title: "Virement SEPA",
+            amount: "- 350.00€",
+            key: 63,
+            state: false,
+          },
+          {
+            shortMonth: "aou",
+            day: "17",
+            date: "17 aou",
+            title: "Virement SEPA",
+            amount: "+ 350.00€",
+            key: 62,
+            state: true,
+          },
+          {
+            shortMonth: "aou",
             day: "14",
             date: "14 aou",
             title: "Virement SEPA",
